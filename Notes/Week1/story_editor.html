@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Story Writer</title>
-  <script></script>
   <style>
     textarea{
       width:800px;
@@ -13,6 +12,32 @@
       background-color:lightyellow;
     }
   </style>
+
+<script>
+  function loadStory(){
+  let storyName = document.getElementById("name_input").value
+  let storyHTML = localStorage.getItem(storyName)
+  console.log(storyHTML)
+  document.getElementById("story_editor").value = storyHTML
+ }
+ function saveStory(){
+ let storyName = document.getElementById("name_input").value
+ let storyHTML = document.getElementById("story_editor").value
+ localStorage.setItem(storyName, storyHTML)
+ console.log(localStorage.getItem(storyName));
+ }
+ function displayStory(){
+ let storyHTML = document.getElementById("story_editor").value
+ document.getElementById("story_display").innerHTML = storyHTML
+ }
+
+ try {
+   console.log(localStorage.getItem(storyName))
+ }
+ catch {
+   console.log("fail")
+ }
+ </script>
 </head>
 
 <body>
@@ -23,14 +48,7 @@ Story Name:<input id=name_input></input><br>
   <button onclick="saveStory()">Save It</button>
   <button onclick="displayStory()">Display It</button>
 </section>
-<textarea id="story_editor" placeholder="Write a totally awesome story 
- here."></textarea>
+<textarea id="story_editor" placeholder="Write a totally awesome story here."></textarea>
  <section id="story_display"></section>
-</body>
-</html>
-
-
-<body>
-  
 </body>
 </html>

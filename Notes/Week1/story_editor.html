@@ -4,22 +4,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
- <title>Story Writer</title>
- <script>
- 
-</script>
- 
- <style>
-
-</style>
+  <title>Story Writer</title>
+  <script></script>
+  <style>
+    textarea{
+      width:800px;
+      height:250px;
+      background-color:lightyellow;
+    }
+  </style>
 </head>
 
 <body>
-Story Name:<input id=name_input></input>
+<h1>Story Editor</h1>
+Story Name:<input id=name_input></input><br>
+<section>
+  <button onclick="loadStory()">Find and Edit It</button>
+  <button onclick="saveStory()">Save It</button>
+  <button onclick="displayStory()">Display It</button>
+</section>
 <textarea id="story_editor" placeholder="Write a totally awesome story 
  here."></textarea>
+ <section id="story_display"></section>
 </body>
 </html>
 

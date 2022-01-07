@@ -11,52 +11,140 @@
       height:250px;
       background-color:lightyellow;
     }
+    #titleBox{
+      align-self:center;
+      background-color:orange;
+      height:255px;
+      display:block;
+    }
     img{
       width:500px;
     }
+    #holder{
+      display:inline-flex;
+    }
   </style>
 
+
+
+
+
 <script>
-  function loadStory(){
+ let titleList = document.getElementById("titleList");
+ console.log(titleList);
+  
+function loadStory(){
   let storyName = document.getElementById("name_input").value;
   let storyHTML = localStorage.getItem(storyName);
   console.log(storyHTML);
   document.getElementById("story_editor").value = storyHTML;
  }
+ 
  function saveStory(){
  let storyName = document.getElementById("name_input").value;
  let storyHTML = document.getElementById("story_editor").value;
  localStorage.setItem(storyName, storyHTML);
- console.log(localStorage.getItem(storyName));
+//  console.log(localStorage.getItem(storyName));
+//  let titleList = document.getElementById("titleList");
+//  console.log(titleList);
+ addTitle();
  }
+
+ function addTitle() {
+  let storyName = document.getElementById("name_input").value;
+  let titleList = document.getElementById("titleList");
+  let title_element = document.createElement("li");
+  let title=localStorage.getItem(storyName);
+  title_element.innerHTML = title;
+  titleList.appendChild(title_element);
+  // console.log(titleList)
+  // localStorage.titleList = titleList;
+  saveTitleList();
+ }
+
+function saveTitleList() {
+  let titleList = document.getElementById("titleList");
+  // console.log(titleList)
+  // let titleList_value =document.getElementById("titleList").value;
+  // console.log(titleList);
+  // console.log(titleList_value);
+  localStorage.setItem(titleList, titleList);
+  // titleList = localStorage.titleList;
+}
+
  function displayStory(){
  let storyHTML = document.getElementById("story_editor").value;
  document.getElementById("story_display").innerHTML = storyHTML;
  }
 
- try {
-   console.log(localStorage.getItem(storyName));
+
+ function showTitleList() {
+   let stories = window.localStorage;
+  //  console.log(window.localStorage)
+   let titleList = document.getElementById("titleList");
+  //  console.log(titleList)
+   for (let key in stories) {
+     if (stories.hasOwnProperty(key)){
+      let title = document.createElement("li");
+      // title.innerHTML = stories[key];
+      title.innerHTML = key;
+      console.log(title);
+      // console.log(stories[key]);
+      try {
+        // console.log(title);
+        // console.log(titleList);
+        titleList.appendChild(title);
+      }
+      catch {
+        // console.log("pass")
+      }
+     }
  }
- catch {
-   console.log("fail");
- }
+  // console.log(stories.hasOwnProperty(key));
+  // console.log(stories[key]);
+  // console.log("Hellow")
+}
+
+showTitleList();
+
+//  console.log(window.localStorage)
+// // localStorage.clear();
+//  try {
+//   let titleList = document.getElementById("titleList");
+//   titleList = localStorage.getItem(titleList)
+//   console.log(localStorage.getItem(titleList));
+//   console.log(localStorage.titleList);
+//   //  console.log(localStorage.getItem(storyName));
+//  }
+//  catch {
+//    console.log("fail");
+//  }
  </script>
 </head>
 
 <body>
   <h1>Exercise/Practice</h1>
   <h2>Story Editor</h2>
-  Story Name:<input id=name_input></input><br>
+  Story Name:<input id="name_input"></input> 
   <section>
     <button onclick="loadStory()">Find and Edit It</button>
     <button onclick="saveStory()">Save It</button>
     <button onclick="displayStory()">Display It</button>
   </section>
+  <div id="holder">
   <textarea id="story_editor" placeholder="Write a totally awesome story here."></textarea>
-  <section id="story_display"></section>
+  <div id="titleBox">
+    <h3>Titles</h3>
+    <ul id="titleList">
+      <li>Hellow</li>
+    </ul>
+  </div>
+</div>
+    <div id="story_display"></div>
   <h2>Questions</h2>
   <ul>
     <li>I'm trying to reload saved data after the page is refreshed, but it says the value is <em>null</em> and nothing comes up. I'm using "setItem" and "getItem" and everything. What's going wrong?</li>
+    
   </ul>
   <h2>Notes</h2>   
   <ul>

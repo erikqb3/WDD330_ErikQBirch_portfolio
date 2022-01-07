@@ -15,7 +15,9 @@
       align-self:center;
       background-color:orange;
       height:255px;
+      min-width: 250px;
       display:block;
+      border: 1px solid black;
     }
     img{
       width:500px;
@@ -29,97 +31,7 @@
 
 
 
-<script>
- let titleList = document.getElementById("titleList");
- console.log(titleList);
-  
-function loadStory(){
-  let storyName = document.getElementById("name_input").value;
-  let storyHTML = localStorage.getItem(storyName);
-  console.log(storyHTML);
-  document.getElementById("story_editor").value = storyHTML;
- }
- 
- function saveStory(){
- let storyName = document.getElementById("name_input").value;
- let storyHTML = document.getElementById("story_editor").value;
- localStorage.setItem(storyName, storyHTML);
-//  console.log(localStorage.getItem(storyName));
-//  let titleList = document.getElementById("titleList");
-//  console.log(titleList);
- addTitle();
- }
 
- function addTitle() {
-  let storyName = document.getElementById("name_input").value;
-  let titleList = document.getElementById("titleList");
-  let title_element = document.createElement("li");
-  let title=localStorage.getItem(storyName);
-  title_element.innerHTML = title;
-  titleList.appendChild(title_element);
-  // console.log(titleList)
-  // localStorage.titleList = titleList;
-  saveTitleList();
- }
-
-function saveTitleList() {
-  let titleList = document.getElementById("titleList");
-  // console.log(titleList)
-  // let titleList_value =document.getElementById("titleList").value;
-  // console.log(titleList);
-  // console.log(titleList_value);
-  localStorage.setItem(titleList, titleList);
-  // titleList = localStorage.titleList;
-}
-
- function displayStory(){
- let storyHTML = document.getElementById("story_editor").value;
- document.getElementById("story_display").innerHTML = storyHTML;
- }
-
-
- function showTitleList() {
-   let stories = window.localStorage;
-  //  console.log(window.localStorage)
-   let titleList = document.getElementById("titleList");
-  //  console.log(titleList)
-   for (let key in stories) {
-     if (stories.hasOwnProperty(key)){
-      let title = document.createElement("li");
-      // title.innerHTML = stories[key];
-      title.innerHTML = key;
-      console.log(title);
-      // console.log(stories[key]);
-      try {
-        // console.log(title);
-        // console.log(titleList);
-        titleList.appendChild(title);
-      }
-      catch {
-        // console.log("pass")
-      }
-     }
- }
-  // console.log(stories.hasOwnProperty(key));
-  // console.log(stories[key]);
-  // console.log("Hellow")
-}
-
-showTitleList();
-
-//  console.log(window.localStorage)
-// // localStorage.clear();
-//  try {
-//   let titleList = document.getElementById("titleList");
-//   titleList = localStorage.getItem(titleList)
-//   console.log(localStorage.getItem(titleList));
-//   console.log(localStorage.titleList);
-//   //  console.log(localStorage.getItem(storyName));
-//  }
-//  catch {
-//    console.log("fail");
-//  }
- </script>
 </head>
 
 <body>
@@ -130,13 +42,15 @@ showTitleList();
     <button onclick="loadStory()">Find and Edit It</button>
     <button onclick="saveStory()">Save It</button>
     <button onclick="displayStory()">Display It</button>
+    <button onclick="deleteStory()">Delete It</button>
+    <button onclick="deleteList()">Delete All</button>
   </section>
   <div id="holder">
   <textarea id="story_editor" placeholder="Write a totally awesome story here."></textarea>
   <div id="titleBox">
     <h3>Titles</h3>
     <ul id="titleList">
-      <li>Hellow</li>
+      <!-- <li>Hellow</li> -->
     </ul>
   </div>
 </div>
@@ -144,11 +58,13 @@ showTitleList();
   <h2>Questions</h2>
   <ul>
     <li>I'm trying to reload saved data after the page is refreshed, but it says the value is <em>null</em> and nothing comes up. I'm using "setItem" and "getItem" and everything. What's going wrong?</li>
-    
+    <li>Found out the "Find and Edit" button only works when the title of a past story is in the "Story Name" input box. Cool. The only problem is that a person had to remember the past titles. Great. So I had to come up with a way to display all past titles. Fantastic. Took me an hour or two. Yeesh.</li>
+    <li>Q. why does document.getelementbyid return null</li>
+    <li>Google told me something along the line of if script isn't in a different file and "defer"ed, can't be at the top. getElementId will run before the HTML does. Just great</li>
   </ul>
   <h2>Notes</h2>   
   <ul>
-    <li>I like the analogy of trying to shove a marshmellow into a piggy-bank. When I first started; It's been hard working from mobile to desk top. But now, I'm kind of use to it. It actually makes doing css stuff easier if you start small and work up.</li>
+    <li>I like the analogy of trying to shove a marshmellow into a piggy-bank. When I first started; It's been hard working from mobile to desk top. But now, I'm kind of use to it. It actually makes doing css stuff easier if you start small and work up. Just</li>
     <li>I think the logic of these screenshots is really cool!<br>
     <img src="../Week1/pics/2022-01-06.png">
     <img src="../Week1/pics/2022-01-06 (1).png">
@@ -160,3 +76,84 @@ showTitleList();
   </ul>
 </body>
 </html>
+
+<!-- if script isn't in a different file and "defer"ed, can't be at the top. getElementId will run before the HTML does  -->
+<script>
+
+// localStorage.clear();
+
+ function loadStory(){
+   let storyName = document.getElementById("name_input").value;
+   let storyHTML = localStorage.getItem(storyName);
+   console.log(storyHTML);
+   document.getElementById("story_editor").value = storyHTML;
+  }
+  
+  function saveStory(){
+  let storyName = document.getElementById("name_input").value;
+  let storyHTML = document.getElementById("story_editor").value;
+  localStorage.setItem(storyName, storyHTML);
+  addTitle();
+  }
+ 
+  function addTitle() {
+   let storyName = document.getElementById("name_input").value;
+   let titleList = document.getElementById("titleList");
+   let title_element = document.createElement("li");
+   let title=localStorage.getItem(storyName);
+   title_element.innerHTML = title;
+   titleList.appendChild(title_element);
+   saveTitleList();
+  }
+ 
+ function saveTitleList() {
+   let titleList = document.getElementById("titleList");
+   console.log(titleList)
+   localStorage.setItem(titleList, titleList);
+ }
+ 
+  function displayStory(){
+  let storyHTML = document.getElementById("story_editor").value;
+  document.getElementById("story_display").innerHTML = storyHTML;
+  }
+ 
+ function deleteStory(){
+  let storyName = document.getElementById("name_input").value;
+  localStorage.removeItem(storyName);
+  // showTitleList()
+ }
+
+ function deleteList() {
+  localStorage.clear();
+ }
+
+
+  function showTitleList() {
+    let stories = window.localStorage;
+    console.log(window.localStorage)
+    let titleList = document.getElementById("titleList");
+    for (let key in stories) {
+      if (stories.hasOwnProperty(key)){
+       let title = document.createElement("li");
+       title.innerHTML = key;
+       console.log(title);
+       try {
+        if (title == "[object HTMLUListElement]") {
+          console.log("pass")
+        }
+        else {
+          titleList.appendChild(title);
+        }
+         
+       }
+       catch {
+         console.log("pass")
+       }
+      }
+  }
+ }
+ 
+ showTitleList();
+ 
+ 
+  </script>

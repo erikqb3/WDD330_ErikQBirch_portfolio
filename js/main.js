@@ -21,9 +21,6 @@ function addLinks() {
     listItem_element.appendChild(listItem_link);
     listItem_link.innerHTML = links_array[i].label;
     listItem_link.href =links_array[i].url;
-
-
-
   }
 }
 

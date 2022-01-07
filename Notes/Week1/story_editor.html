@@ -11,44 +11,64 @@
       height:250px;
       background-color:lightyellow;
     }
+    img{
+      width:500px;
+    }
   </style>
 
 <script>
   function loadStory(){
-  let storyName = document.getElementById("name_input").value
-  let storyHTML = localStorage.getItem(storyName)
-  console.log(storyHTML)
-  document.getElementById("story_editor").value = storyHTML
+  let storyName = document.getElementById("name_input").value;
+  let storyHTML = localStorage.getItem(storyName);
+  console.log(storyHTML);
+  document.getElementById("story_editor").value = storyHTML;
  }
  function saveStory(){
- let storyName = document.getElementById("name_input").value
- let storyHTML = document.getElementById("story_editor").value
- localStorage.setItem(storyName, storyHTML)
+ let storyName = document.getElementById("name_input").value;
+ let storyHTML = document.getElementById("story_editor").value;
+ localStorage.setItem(storyName, storyHTML);
  console.log(localStorage.getItem(storyName));
  }
  function displayStory(){
- let storyHTML = document.getElementById("story_editor").value
- document.getElementById("story_display").innerHTML = storyHTML
+ let storyHTML = document.getElementById("story_editor").value;
+ document.getElementById("story_display").innerHTML = storyHTML;
  }
 
  try {
-   console.log(localStorage.getItem(storyName))
+   console.log(localStorage.getItem(storyName));
  }
  catch {
-   console.log("fail")
+   console.log("fail");
  }
  </script>
 </head>
 
 <body>
-<h1>Story Editor</h1>
-Story Name:<input id=name_input></input><br>
-<section>
-  <button onclick="loadStory()">Find and Edit It</button>
-  <button onclick="saveStory()">Save It</button>
-  <button onclick="displayStory()">Display It</button>
-</section>
-<textarea id="story_editor" placeholder="Write a totally awesome story here."></textarea>
- <section id="story_display"></section>
+  <h1>Exercise/Practice</h1>
+  <h2>Story Editor</h2>
+  Story Name:<input id=name_input></input><br>
+  <section>
+    <button onclick="loadStory()">Find and Edit It</button>
+    <button onclick="saveStory()">Save It</button>
+    <button onclick="displayStory()">Display It</button>
+  </section>
+  <textarea id="story_editor" placeholder="Write a totally awesome story here."></textarea>
+  <section id="story_display"></section>
+  <h2>Questions</h2>
+  <ul>
+    <li>I'm trying to reload saved data after the page is refreshed, but it says the value is <em>null</em> and nothing comes up. I'm using "setItem" and "getItem" and everything. What's going wrong?</li>
+  </ul>
+  <h2>Notes</h2>   
+  <ul>
+    <li>I like the analogy of trying to shove a marshmellow into a piggy-bank. When I first started; It's been hard working from mobile to desk top. But now, I'm kind of use to it. It actually makes doing css stuff easier if you start small and work up.</li>
+    <li>I think the logic of these screenshots is really cool!<br>
+    <img src="/Notes/Week1/pics/2022-01-06.png">
+    <img src="/Notes/Week1/pics/2022-01-06 (1).png">
+    <img src="/Notes/Week1/pics/2022-01-06 (2).png">
+    <img src="/Notes/Week1/pics/2022-01-06 (5).png">
+    <img src="/Notes/Week1/pics/2022-01-06 (6).png">
+    <img src="/Notes/Week1/pics/2022-01-06 (7).png">
+  </li>
+  </ul>
 </body>
 </html>

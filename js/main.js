@@ -3,7 +3,7 @@ function prepStuff() {
     {label: "Week1 notes",
     url: "Notes/Week1/story_editor.html"
     },
-    {label: "Week notes",
+    {label: "Week2 notes",
     url: "Notes/Week/codeFromReadings.html"
     },
     {label: "TestRun",

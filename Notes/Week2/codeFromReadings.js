@@ -28,7 +28,7 @@
 const quiz = [
   ["What type is Pikachu?","Electric"],
   ["What type is Eevee?","Normal"],
-  ["What type is Charizard?","Fire"]
+  ["What type is Charizard?","Fire and Flying"]
   ];
 function start(quiz){
   let score = 0;

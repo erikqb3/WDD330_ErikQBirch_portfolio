@@ -2,9 +2,24 @@ div#block {
   display: block;
   height: 100px;
   width: 100px;
-  background-color: red;
+  background-color: #d23234;
   position: relative;
-  bottom: 50px;
-  left: 50px;
+  bottom: 0px;
+  left: 0px;
   z-index: 2;
+}
+
+div#goal {
+  display: block;
+  height: 100px;
+  width: 100px;
+  background-color: #d8a50b;
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+p#note {
+  font-size: 2rem;
 }

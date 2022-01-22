@@ -7,6 +7,7 @@ addEventListener('keydown', (event) => {
 
 switch(event.key) {
   case "ArrowDown":
+  case "k":
     bottom = cssObj.getPropertyValue('bottom');
     bottom = Number(bottom.replace("px",''));
     increment++
@@ -16,6 +17,7 @@ switch(event.key) {
     })
     break;
   case "ArrowUp":
+  case "i":
     bottom = cssObj.getPropertyValue('bottom');
     bottom = Number(bottom.replace("px",''));
     increment++
@@ -26,6 +28,7 @@ switch(event.key) {
     })
     break;
   case "ArrowLeft":
+  case "j":
     left = cssObj.getPropertyValue('left');
     left = Number(left.replace("px",''));
     increment++
@@ -35,6 +38,7 @@ switch(event.key) {
     })
     break;
   case "ArrowRight":
+  case "l":
     left = cssObj.getPropertyValue('left');
     left = Number(left.replace("px",''));
     increment++

@@ -1,0 +1,10 @@
+div#block {
+  display: block;
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  position: relative;
+  bottom: 50px;
+  left: 50px;
+  z-index: 2;
+}

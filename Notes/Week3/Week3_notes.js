@@ -14,8 +14,8 @@ const quiz = [ // totally separate from the game
 const game = {
   wait() {
     this.continue = false;
-    yourAnswer = prompt("Wait! Are you actually going to play? [Y/N]").toUpperCase();
-    if (yourAnswer === "Y") {
+    yourAnswer = prompt("Wait! Are you actually going to play? [Y/N]");
+    if ((yourAnswer === "Y") || (yourAnswer === "y")){
       this.continue = true;
     }
     else{};

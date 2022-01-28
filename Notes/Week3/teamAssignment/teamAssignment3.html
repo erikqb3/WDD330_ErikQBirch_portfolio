@@ -70,61 +70,82 @@
         'Blake, William'
       ];
 
+
+
+
+
+
+
+
+
+
+
+
+
       // Array.prototype.filter()
       // 1. Filter the list of inventors for those who were born in the 1500's
 
-    results = inventors.filter( inventor => {
+    results1 = inventors.filter( inventor => {
         if ((inventor.year >= 1500) && (inventor.year <= 1600)) {
           return inventor.year;
         }
       });
-    console.log(results)
+    console.log("results1", results1)
 
 
       // Array.prototype.map()
       // 2. Give us an array of the inventors' first and last names
     
-    let names = [];
+    let results2 = [];
 
     inventors.map(inventor => {
-      let inventorName = {First: inventor.first, Last: inventor.last};
-      names.push(inventorName);
+      // let inventorName = {First: inventor.first, Last: inventor.last};
+      let inventorName = inventor.first + " " + inventor.last;
+      results2.push(inventorName);
     })
 
-    console.log(names)
+    console.log("results2", results2)
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
     
-      let sorted = inventors.sort(function(oldest, youngest) {
+      let results3 = inventors.sort(function(oldest, youngest) {
         return oldest.year - youngest.year;
       })
 
 
-      console.log(sorted)
+      console.log("results3", results3)
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live?
-      let result4 = inventors.reduce((total, inventor) => {
+      let results4a = inventors.reduce((total, inventor) => {
         years = inventor.passed - inventor.year;
         return total+years
       },0);4
-      console.log(result4)
+      console.log("results4a", results4a)
 
+      let results4b = [];
+      inventors.map(inventor => {
+        let inventorLifeSpan = inventor.passed - inventor.year;
+        results4b.push(inventorLifeSpan)
+      })
+      let supposedTotal =  70+78+59+84+37+80+50+89+67+90+76+81
 
+      console.log("results4b", results4b, supposedTotal)
       // 5. Sort the inventors by years lived
       results5 = inventors.sort((inventorA, inventorB) => {
         return (inventorB.passed-inventorA.passed) - (inventorB.passed-inventorA.passed);
       })
-      console.log(results5)
+      console.log("results5", results5)
 
 
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-      // goto the link above and open the console. Paste the following two lines in.  That will create a list of links in memory that you can reference through the console. Use that list to finish the problem.
+      // go to the link above and open the console. Paste the following two lines in.  That will create a list of links in memory that you can reference through the console. Use that list to finish the problem.
       // const category = document.querySelector('.mw-category');
       // const links = Array.from(category.querySelectorAll('a'));
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
+      console.log(people);
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
@@ -144,6 +165,39 @@
         'car',
         'truck'
       ];
+
+      let carCount = 0;
+      let truckCount = 0;
+      let bikeCount = 0;
+      let walkCount = 0;
+      let vanCount = 0;
+      for (i=0; i<data.length; i++) {
+        switch(data[i]) {
+          case "car":
+            carCount++;
+            break;
+          case "truck":
+            truckCount++;
+            break;
+          case "bike":
+            bikeCount++;
+            break;
+          case "walk":
+            walkCount++;
+            break;
+          case "van":
+            vanCount++;
+            break;
+        }
+      }
+
+      console.log("carCount", carCount, "\n",
+      "truckCount", truckCount, "\n",
+      "bikeCount", bikeCount, "\n",
+      "walkCount", walkCount, "\n",
+      "vanCount", vanCount, "\n",
+      "Total",carCount+truckCount+bikeCount+walkCount+vanCount,data.length)
+      
     </script>
 
 

@@ -9,6 +9,9 @@ function prepStuff() {
     {label: "Week3 notes",
     url: "Notes/Week3/Week3_notes.html"
     },
+    {label: "Week3 notes",
+    url: "Notes/Week4/Week4_notes.html"
+    },
     {label: "TestRun",
   url:"https://myheroacademia.fandom.com/wiki/List_of_Characters"}
   ];

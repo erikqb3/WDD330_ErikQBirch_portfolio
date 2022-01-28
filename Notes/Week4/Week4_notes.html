@@ -4,8 +4,65 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Week4_notes
-    
+  <title>Week4_notes</title>
+    <h1>Notes</h1>
+    <h3>Chapter 8</h3>
+    <ul>
+      <li>If people want to reset their forms, they can always refresh the page. #NoReset
+        <br><button type="reset">Reset</button>
+        <br><button type="menu">Menu</button>
+      </li>
+      <li>
+        <input type="password" maxlength="7"> Password, 7 char 
+      </li>
+      <li>
+        <input type="checkbox" checked> Default Checked
+      </li>
+      <li>
+        <input type="radio" checked> Default Checked
+      </li>
+      <li>
+        <input type="file"> COOL!
+      </li>
+      <li>
+        <input type="number">
+      </li>
+      <li>
+        <button type="submit" disabled>Disabled Button</button>
+      </li>
+
+    </ul>
+    <h3>Chapter 12</h3>
+    <ul>
+      <li>Polymorphism - various objects can share the same method, but also have the
+        ability to override shared methods with a more specific implementation</li>
+        <li>
+          The parentheses are not required when instantiating a new object using a
+  constructor function. The following code would also achieve the same result:<br>
+  const redDice = new Dice;<br>
+  The parentheses are required, however, if any default arguments need to be
+  provided.<br>
+  For example, if we want to create another Dice object with four sides, we would
+  have to add 4 as an argument, like so:<br>
+  const whiteDice = new Dice(4)
+        </li>
+        <li>Use "for/of" instead of "forEach", make your own counter if you need one</li>
+    </ul>
+    <h3>Stuff to dig deeper into</h3>
+    <ul>
+      <li>Instanceof</li>
+      <li>prototype and all it entails</li>
+      <li>get and set</li>
+      <li>Mixin</li>
+      <li>Bind</li>
+      <li>The entire OOP chapter (There's just so much!)</li>
+    </ul>
+    <h1>Questions</h1>
+    <ul>
+      <li>To by understanding, the "action" attribute of "form" sends the user to a different page when form is submitted. So it's kind of like an "a" tag with an "href", right?</li>
+      <li>How can you do make it so people can see the characters they are typing into the password input</li>
+      <li>Monkey Patching: writing your own code to take the place of already existing functions,prototypes, etc., Right?
+    </ul>
   </title>
 </head>
 <body>

@@ -1,0 +1,12 @@
+div.taskHolder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div#buttonHolder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=ToDo.css.map */

@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "ACEA,AAAA,GAAG,AAAA,WAAW,CAAC;EACb,OAAO,EAAE,IAAI;CACd;;AAED,AAAA,GAAG,AAAA,aAAa,CAAC;EACf,OAAO,EAAE,IAAI;CACd",
+    "sources": [
+        "ToDo.scss",
+        "_ToDo(min).scss",
+        "_ToDo(med).scss",
+        "_ToDo(max).scss"
+    ],
+    "names": [],
+    "file": "ToDo.css"
+}

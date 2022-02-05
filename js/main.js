@@ -21,6 +21,7 @@ function prepStuff() {
   return links_array;
 }
 
+
 function addLinks() {
   let links_array = prepStuff();
   let linksList_element = document.getElementById("linksList");

@@ -6,19 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/Notes/Week5/ChallengeOne/scss/ToDo.css" rel="stylesheet">
   <script src="ToDo.js" defer></script>
-  <title>Document</title>
+  <title>To Do List</title>
 </head>
 <body>
-  <h1 id="title">To Dos</h1>
+  <main>
+     <h1 id="title">To Dos</h1>
   <form id="TDlist">
   </form>
 
-
-  <div id="buttonHolder">
-  <button id="leftovers"><span></span>Tasks Left</button>
+  
+<div id="buttonHolder">
+  <div><span id="leftovers"></span> Tasks Left</div>
   <div id="viewOptions">
-    <button id="allBtn">All</button>
-    <button id="activeBtn" class="selected">Active</button>
+    <button id="allBtn" class="selected">All</button>
+    <button id="activeBtn">Active</button>
     <button id="completedBtn">Completed</button>
   </div>
 </div>
@@ -26,5 +27,7 @@
   <input id="input" type="text">
   <button id="addBtn">+</button>
 </div>
+  </main>
+ 
 </body>
 </html>

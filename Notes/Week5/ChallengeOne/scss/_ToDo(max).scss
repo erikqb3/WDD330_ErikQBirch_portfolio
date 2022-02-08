@@ -1,0 +1,49 @@
+body {
+}
+main {
+  width: 60%;
+  margin: 2% auto;
+  h1 {
+    font-size: 4rem;
+  }
+}
+form {
+  div.taskHolder {
+    input {
+      margin-right: 2rem;
+    }
+    label {
+    }
+    div {
+    }
+  }
+}
+
+div#buttonHolder {
+  div#viewOptions {
+    button {
+      padding: 1rem 8.75rem;
+    }
+    button.selected {
+    }
+  }
+}
+div#inputHolder {
+  input {
+    font-size: 2rem;
+    line-height: 4rem;
+    width: 92.5%;
+    border: 0.5px solid #979797;
+  }
+  button {
+    font-size: 2rem;
+    line-height: 4rem;
+    width: 4.25rem;
+    height: 4.25rem;
+    margin: 0 0 0 auto;
+  }
+  button:hover,
+  button:active {
+    background-color: #979797;
+  }
+}

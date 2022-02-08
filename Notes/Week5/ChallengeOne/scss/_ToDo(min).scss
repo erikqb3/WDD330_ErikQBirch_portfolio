@@ -1,9 +1,83 @@
 body {
+  background-color: #3a3a3a;
 }
-div.taskHolder {
-  display: flex;
+main {
+  width: 80%;
+  margin: 10% auto;
+  border: 1px solid black;
+  background-color: #ffe600;
+  padding: 0 5%;
+  h1 {
+    font-size: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+  }
+}
+form {
+  // background-color: whitesmoke;
+  height: 50vh;
+  overflow: auto;
+  margin: 2.5% 0;
+  font-family: 'Courier New', Courier, monospace;
+  div.taskHolder {
+    display: flex;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin: 1rem 0;
+    input {
+      width: 2rem;
+      height: 2rem;
+      margin-right: 1rem;
+    }
+    label {
+    }
+    div {
+      margin: 0 0 0 auto;
+    }
+  }
 }
 
 div#buttonHolder {
+  display: block;
+  font-size: 1.75rem;
+  font-family: 'Courier New', Courier, monospace;
+  // text-align: center;
+  div#viewOptions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 1rem 0;
+    button {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.5rem;
+      // width: 30%;
+      padding: 1rem 0.5rem;
+    }
+    button.selected {
+      background-color: #979797;
+    }
+  }
+}
+div#inputHolder {
+  width: 100%;
+  margin-bottom: 2rem;
   display: flex;
+  input {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    width: 82%;
+    border: 0.5px solid #979797;
+  }
+  button {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid #979797;
+
+    margin: 0 0 0 auto;
+  }
+  button:hover,
+  button:active {
+    background-color: #979797;
+  }
 }

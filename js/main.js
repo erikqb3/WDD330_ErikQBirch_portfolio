@@ -15,6 +15,9 @@ function prepStuff() {
     {label: "Week5 notes",
     url: "Notes/Week5/Week5_notes.html"
     },
+    {label: "Week6 Midterm Checkin",
+    url: "Notes/Week5/ChallengeOne/ToDo.html"
+    },
     {label: "TestRun",
   url:"https://myheroacademia.fandom.com/wiki/List_of_Characters"}
   ];

@@ -1,12 +1,154 @@
-div.taskHolder {
+body {
+  background-color: #3a3a3a;
+}
+
+main {
+  width: 80%;
+  margin: 10% auto;
+  border: 1px solid black;
+  background-color: #ffe600;
+  padding: 0 5%;
+}
+
+main h1 {
+  font-size: 3rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+form {
+  height: 50vh;
+  overflow: auto;
+  margin: 2.5% 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+form div.taskHolder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  margin: 1rem 0;
+}
+
+form div.taskHolder input {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+form div.taskHolder div {
+  margin: 0 0 0 auto;
+}
+
+div#buttonHolder {
+  display: block;
+  font-size: 1.75rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+div#buttonHolder div#viewOptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1rem 0;
+}
+
+div#buttonHolder div#viewOptions button {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  padding: 1rem 0.5rem;
+}
+
+div#buttonHolder div#viewOptions button.selected {
+  background-color: #979797;
+}
+
+div#inputHolder {
+  width: 100%;
+  margin-bottom: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-div#buttonHolder {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+div#inputHolder input {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  width: 82%;
+  border: 0.5px solid #979797;
+}
+
+div#inputHolder button {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid #979797;
+  margin: 0 0 0 auto;
+}
+
+div#inputHolder button:hover,
+div#inputHolder button:active {
+  background-color: #979797;
+}
+
+@media only screen and (min-width: 760px) {
+  body {
+    background-color: #3a3a3a;
+  }
+  main {
+    width: 60%;
+    margin: 5% auto;
+  }
+  main h1 {
+    font-size: 3.5rem;
+  }
+  form div.taskHolder {
+    font-size: 2rem;
+  }
+  div#buttonHolder div#viewOptions button {
+    padding: 1rem 2.5rem;
+  }
+  div#inputHolder input {
+    width: 89.5%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  main {
+    width: 60%;
+    margin: 2% auto;
+  }
+  main h1 {
+    font-size: 4rem;
+  }
+  form div.taskHolder input {
+    margin-right: 2rem;
+  }
+  div#buttonHolder div#viewOptions button {
+    padding: 1rem 8.75rem;
+  }
+  div#inputHolder input {
+    font-size: 2rem;
+    line-height: 4rem;
+    width: 92.5%;
+    border: 0.5px solid #979797;
+  }
+  div#inputHolder button {
+    font-size: 2rem;
+    line-height: 4rem;
+    width: 4.25rem;
+    height: 4.25rem;
+    margin: 0 0 0 auto;
+  }
+  div#inputHolder button:hover,
+  div#inputHolder button:active {
+    background-color: #979797;
+  }
 }
 /*# sourceMappingURL=ToDo.css.map */

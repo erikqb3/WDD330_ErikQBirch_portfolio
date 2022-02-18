@@ -19,7 +19,7 @@ function prepStuff() {
     url: "Notes/Week5/ChallengeOne/ToDo.html"
     },
     {label: "Week7 notes",
-    url: "Notes/Week7/Week7_notes.html"
+    url: "Notes/Week7/W7_notes.html"
     },
     {label: "TestRun",
   url:"https://myheroacademia.fandom.com/wiki/List_of_Characters"}

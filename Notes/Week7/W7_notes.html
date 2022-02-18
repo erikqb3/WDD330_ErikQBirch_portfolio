@@ -4,22 +4,54 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="W7_notes.js"></script>
   <title>Week4_notes</title>
+</head>
     <h1>Notes (ERIK Q. Birch)</h1>
     <h3>Chapter 11</h3>
     <ul>
+      <li>Functions have length properties that return the number of parameters! Cool!</li>
+      <li>'This' is always the first arguement in a function.</li>
+      <li>cache property saves the return values of functions and puts it in object! Key values are the arguements and Value values are the returns! So cool!</li>
+      <li>IFFE's are interesting, I'm not the biggest fan of them because the instantaeous part gets in the way of my organization patterns. Can you really access variables created in functions from outside? I could be wrong, but i doubt it.</li>
+      <li>Tested it out in my Javascript. You can't access variables created in functions from outside functions (at least without calling them). 
+        Therefore, global namespacde is not polluted with lots of variable names</li>
+      <li>Ugh! The safest way of using strict mode is to put everything in a IFFE?! No thanks</li>
+      <li>Call backs, functinos passed to other functions as arguements and inoked inside the functinos.
+        THEY ARE USEFUL BECAUSE THEY ANY FUNCTION CAN BE PUT IN AS THE ARGUEMENT AND CALLED TO CARRY OUT WHATEVER THE INVOKED CALL BACK FUNCITON IS USED FOR, FLEXIBILITY.
+      </li>
+      <li>function* = generators, contains 'yield' instead of returns (still has similart outcom)</li>
+      
     </ul>
     <h3>Chapter 13</h3>
     <ul>
+      <li>Cross-origin Resource Sharing (CORS) - allows resources to be requested from another website outside the original domain </li>
+      <li>Asynchronous Javascript and XML (AJAX)</li>
+        <li>Application Programming Interface (API) a collection of methods that allows external access to another program or service</li>
+        <li>The Response interface allows you to control the response received from a
+        request or to create your own response objects.</li>
+        <li>The Request interface allows you to create a request object that contains
+        information about the request being made, such as the URL and headers.</li>
+        <li>The Headers interface allows you to create HTTP headers that can be added to
+        a request or response object.</li>
     </ul>
     <h3>Stuff to dig deeper into</h3>
     <ul>
+      <li>Generator Functions</li>
+      <li>Currying</li>
     </ul>
     <h1>Questions</h1>
     <ul>
-      
+      <li>Does the call() method only work with objects? </li>
+      <li>How does the cache property work with several arguements?</li>
+      <li>Giving Functions properties is a cool concept, but how/when would you implement those properties?</li>
+      <li>Are recursive Funcitons simply functions that loop and have if statements?</li>
     </ul>
-</head>
+  <!-- <input type="number" id="A" placeholder="A">
+  <input type="number" id="A" placeholder="B">
+  <input type="text" id="operator" placeholder="operator">
+  <p id="button">Enter</p>
+  <h4 id="output"></h4> -->
 <body>
   
 </body>

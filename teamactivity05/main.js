@@ -65,30 +65,29 @@ export default class Hikes {//on load grab the array and insert it into the page
 
         document.getElementById("hikes").innerHTML = ""; //clear whole list
         document.getElementById("hikes").appendChild(singleTrail); //display clicked trail
-        let currentInfo = document.querySelector("ul.trailInfo").children; //put current Trail info into array
+        let currentInfo = document.querySelector("div.trailHolder").children; //put current Trail info into array
         let currentInfo_name = currentInfo[0].textContent; // target current Trail name
         
         
         hikesList.forEach(function(hikeObject) { //use "database"
-          console.log(hikeObject, "73");
-          Object.keys(hikeObject).forEach(key => { // loop through whole hike list
-            console.log(currentInfo_name)
-            if (hikeObject[key] == currentInfo_name) { //if value of hikelist key = current name info, 
-              // this.showCommentsSection()
-              // this.addCommentButton();
-              let descript = document.createElement('li'); 
-              let direct = document.createElement('li');
-              descript.innerHTML = hikeObject["description"];
-              direct.innerHTML = hikeObject["directions"];
-              console.log(hikeObject["description"]);
-              console.log(hikeObject["directions"]);
-    
-              document.querySelector("ul.trailInfo").appendChild(descript); //add descript and direct elements
-              document.querySelector("ul.trailInfo").appendChild(direct);
-            }
-        })
-        
+          console.log(hikeObject.name, "73");
+          console.log(currentInfo_name, "74");
+          if (hikeObject.name == currentInfo_name) { //if value of hikelist key = current name info, 
+            // this.showCommentsSection()
+            // this.addCommentButton();
+            let descript = document.createElement('li'); 
+            let direct = document.createElement('li');
+            descript.innerHTML = hikeObject["description"];
+            direct.innerHTML = hikeObject["directions"];
+            console.log(hikeObject["description"]);
+            console.log(hikeObject["directions"]);
+  
+            document.querySelector("ul.trailInfo").appendChild(descript); //add descript and direct elements
+            document.querySelector("ul.trailInfo").appendChild(direct);
+          }
       })
+      this.showCommentsList();
+      this.showCommentsInput();
       this.addCommentButton();
       this.buildBackButton(); //create backbutton to go to allTrails view
       } else {};
@@ -97,8 +96,13 @@ export default class Hikes {//on load grab the array and insert it into the page
     };
     
   }
- 
-  showCommentsSection(){
+  showCommentsList(){
+    let commentHolder = document.createElement('div');
+    commentHolder.classList.add("commentHolder");
+    document.querySelector("div.trailHolder").appendChild(commentHolder);
+  }
+
+  showCommentsInput(){
     let addCommentButton = document.createElement('textarea');
     addCommentButton.id = "commentInput";
     addCommentButton.textContent = "Add Comment";

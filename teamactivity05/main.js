@@ -130,7 +130,14 @@ export default class Hikes {//on load grab the array and insert it into the page
       document.querySelector("div.trailHolder").appendChild(commentsDiv);
     });
   }
-
+  // addCommentToList() {
+  //   let commentText = document.getElementById("commentInput").textContent;
+  //   let commentElement = document.createElement('div');
+  //   commentElement.classList.add('commentElement');
+  //   let commentElement_text = document.createElement('p');
+  //   commentElement_text.innerHTML = commentText;
+  //   commentElement.appendChild(commentElement_text)
+  // }
 
 
   addHikeListener() { // in order to show the details of a hike untouchend we will need to attach a listener AFTER the list of hikes has been built. 

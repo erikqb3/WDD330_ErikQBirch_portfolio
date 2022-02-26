@@ -1,6 +1,7 @@
 // let number = Math.floor(Math.random() * 899);
 
 let limit = 25;
+let viewLimit = 6;
 const allPokemonNumb = 899;
 let pokedex = [];
 let box = [];
@@ -107,7 +108,7 @@ function displayPagNav_holder(pagNav_holder) {
   //dispaly pagNavholder whenever you can/want
   console.log(pagNav_holder)
 
-  let viewLimit = 6;
+  // let viewLimit = 6;
 
   pagNav_elementArray = pagNav_holder.children;
   console.log(pagNav_elementArray);

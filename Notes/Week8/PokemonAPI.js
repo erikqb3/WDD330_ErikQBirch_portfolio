@@ -105,7 +105,7 @@ function createPagNav_holder(limit) {
 }
 
 function displayPagNav_holder(pagNav_holder) {
-  //dispaly pagNavholder whenever you can/want
+  //I only want to pull out 6 of the pagNavBtns, should start out as 1 26 51 76 101 151
   console.log(pagNav_holder)
 
   // let viewLimit = 6;
@@ -116,24 +116,16 @@ function displayPagNav_holder(pagNav_holder) {
   // prevBtn.innerHTML = "PREV";
   // let nextBtn = document.createElement('p');
   // nextBtn.innerHTML = "NEXT"
-
-  for (let i=0; i<viewLimit; i++) {
-    console.log(pagNav_elementArray[i])
-  }
+  
 
   document.getElementsByTagName("main")[0].appendChild(pagNav_holder);
-
-
-  // let current = document.getElementById('current');
-  
-  // if (current.innerHTML != "1") {
-  //   document.getElementsByTagName("main")[0].appendChild("prevBtn");
-  // }
-
-  if (pokedex.length == 1) {
-
+  for (let i=(pagNav_elementArray.length-1); i>viewLimit; i--) {
+    console.log(pagNav_elementArray[i])
+    console.log(i);
+    
+    pagNav_holder.remove(pagNav_elementArray[i])
   }
-  // document.getElementsByTagName("main")[0].appendChild(pagNav_holder);
+  // console.log(pagNav_holder);
 }
 
 function clearPokedex() {

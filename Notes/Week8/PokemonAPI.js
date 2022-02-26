@@ -122,8 +122,7 @@ function displayPagNav_holder(pagNav_holder) {
   for (let i=(pagNav_elementArray.length-1); i>viewLimit; i--) {
     console.log(pagNav_elementArray[i])
     console.log(i);
-    
-    pagNav_holder.remove(pagNav_elementArray[i])
+    // pagNav_holder.remove(pagNav_elementArray[i]) //this is somehow causing problems
   }
   // console.log(pagNav_holder);
 }

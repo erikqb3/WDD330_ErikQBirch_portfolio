@@ -72,9 +72,15 @@ function displayBox(pokedex,x) {
   const pokedexList = document.getElementById("pokedexList");
   console.log(pokedex[x], x)
   for (let i=0; i < pokedex[x].length; i++) {
-    let pokemon = document.createElement("p");
-    pokemon.innerHTML = pokedex[x][i].name;
-    pokedexList.appendChild(pokemon)
+    let pokeCard = document.createElement('div');
+    let pokeName = document.createElement("p");
+    pokeName.innerHTML = pokedex[x][i].name;
+    let pokePic = document.createElement('img');
+    pokePic.setAttribute("src",`${pokedex[x][i].sprites.front_default}`);
+    pokePic.setAttribute("alt", `${pokedex[x][i].name}`)
+    pokeCard.appendChild(pokeName);
+    pokeCard.appendChild(pokePic);
+    pokedexList.appendChild(pokeCard);
   };
 }
 
@@ -117,8 +123,10 @@ function displayPagNav_holder(pagNav_holder) {
   // let nextBtn = document.createElement('p');
   // nextBtn.innerHTML = "NEXT"
   
-
-  document.getElementsByTagName("main")[0].appendChild(pagNav_holder);
+  let pokedexList = document.getElementById("pokedexList");
+  document.getElementsByTagName("main")[0].insertBefore(pagNav_holder,pokedexList);
+  
+  // document.getElementsByTagName("main")[0].appendChild(pagNav_holder);
   for (let i=(pagNav_elementArray.length-1); i>viewLimit; i--) {
     console.log(pagNav_elementArray[i])
     console.log(i);

@@ -74,7 +74,7 @@ function displayBox(pokedex,x) {
   for (let i=0; i < pokedex[x].length; i++) {
     let pokeCard = document.createElement('div');
     let pokeName = document.createElement("p");
-    pokeName.innerHTML = pokedex[x][i].name;
+    pokeName.innerHTML = `#${pokedex[x][i].id} ${pokedex[x][i].name}`;
     let pokePic = document.createElement('img');
     pokePic.setAttribute("src",`${pokedex[x][i].sprites.front_default}`);
     pokePic.setAttribute("alt", `${pokedex[x][i].name}`)

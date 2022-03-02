@@ -1,8 +1,10 @@
 div#pagNav_holder {
-  width: auto;
+  width: 90%;
+  margin: 1rem auto;
+  margin-left: 5%;
   text-align: center;
   display: inline-flex;
-  margin: 0 6.5%;
+  overflow-x: auto;
   /* justify-items: center; */
 }
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="W10_notes.js"></script>
+  <title>Week4_notes</title>
+</head>
+    <h1>Notes (ERIK Q. Birch)</h1>
+    <h3>Client Side Validation</h3>
+    <ul>
+      <li>:valid, :invalid, and :out-of-range psuedo class. "So that's how input boxes change color depending on the truthiness of the input</li>
+      <li> pattern="[Bb]anana|[Cc]herry is a better idea than if (Bannana) || (bannana) || (Cherry) || (cherry) </li>
+      <li>validationMessage, validity, validityState, patternMismatch, tooLong -> max length, tooshort -> minlength, rangeOverflow, rangeUnderflow
+        typeMismatch, valid, valueMissing, willValidate. All are simmilar to innerHTML, getElementById, querySelector, etc. (I think).
+      </li>
+      <li>checkValidity(), reportValidity(), preventDefault, setCustomValidity(message) or maybe this is more like the innerHTML, getElementById, etc. stuff</li>
+      
+      <li>"const email = document.getElementById("mail");<br>
+      email.addEventListener("input", function (event) {<br>
+       if (email.validity.typeMismatch) {<br>
+       email.setCustomValidity("I am expecting an e-mail address!");<br>
+       email.reportValidity();<br>
+       } else {<br>
+       email.setCustomValidity("");<br>
+       }<br>
+       }"</li>
+      <li>Text to speech is great!</li>
+
+    </ul>
+    <h3>FETCH</h3>
+    <ul>
+      <li>There us a lot of content in this reading. (more advanced that simply let url = "https://botw-compendium.herokuapp.com/api/v2"; //ZeldaBOTWcompendium
+        fetch(url)
+          .then(response => response.json())
+          .then(lookAtData);</li>
+      <li>It would be nice to have an example video about the complexity of the many fetch objects and properties</li>
+    </ul>
+    <h3>Stuff to dig deeper into</h3>
+    <ul> 
+      <li>Fetch, </li>
+    </ul>
+    <h1>Questions</h1>
+    <ul>
+      <li>What do headers have to do with fetch? Talking about the beggining code within an HTML file?</li>
+    </ul>
+<body>
+  
+</body>
+</html>

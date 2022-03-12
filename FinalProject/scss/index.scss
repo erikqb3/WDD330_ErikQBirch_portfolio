@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+@import '_index(min)';
+
+@media only screen and (min-width: 760px) {
+  @import '_index(med)';
+}
+@media only screen and (min-width: 1200px) {
+  @import '_index(max)';
+}

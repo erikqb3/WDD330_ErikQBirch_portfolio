@@ -1,0 +1,7 @@
+@media (min-width: 32.5em) {
+  img {
+    margin-right: 2em;
+    margin-top: -100px;
+    float: right;
+  }
+}

@@ -1,18 +1,19 @@
+
+
 async function main() {
   const url = "https://botw-compendium.herokuapp.com/api/v2";
   let data = await fetch(url)
   .then(response => response.json())
-  .then(startupFunctions) //temp
+  .then(startupMethods.getSetup()) //temp
   return data;
 }
 
-function startupFunctions(jsonData) {
-  startupMethods.getSetup(jsonData);
-  // getWallet();
-  // startupMethods.getWallet();
-  // let isNewDay = startupMethods.checkNewDay();
-  // startupMethods.restockShelves(isNewDay,jsonData)
-}
+// function startupFunctions(jsonData) {
+//   // getWallet();
+//   startupMethods.getWallet();
+//   let isNewDay = startupMethods.checkNewDay();
+//   startupMethods.restockShelves(isNewDay,jsonData)
+// }
 
 
 

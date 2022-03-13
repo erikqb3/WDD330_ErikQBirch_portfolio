@@ -30,8 +30,8 @@ function prepStuff() {
     {label: "Week10 notes",
     url: "Notes/Week10/W10_notes.html"
     },
-    {label: "TestRun",
-  url:"https://myheroacademia.fandom.com/wiki/List_of_Characters"}
+    {label: "Final Project",
+  url:"FinalProject/index.html"}
   ];
   return links_array;
 }

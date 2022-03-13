@@ -11,6 +11,22 @@ img#logo {
   width: 25%;
 }
 
+main div.display {
+  color: whitesmoke;
+  background-color: #ccbe95;
+  border: 1px solid rgba(36, 17, 3, 0.849);
+}
+
+main div.viewBtn {
+  color: whitesmoke;
+  display: inline-block;
+  text-shadow: 1.5px 1.5px 2px black;
+  background-color: rgba(36, 17, 3, 0.849);
+  border: 2px solid #ffdb7a;
+  text-align: center;
+  padding: 1.75rem;
+}
+
 @media only screen and (min-width: 760px) {
   body {
     background-image: url("/FinalProject/img/wallPaper_full.jpg");

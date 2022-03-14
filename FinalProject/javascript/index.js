@@ -1,4 +1,6 @@
 async function main() {
+  startupMethods.getWallet();
+  startupMethods.getHTripCount();
   const url = "https://botw-compendium.herokuapp.com/api/v2";
   let data = await fetch(url)
   .then(response => response.json())
@@ -19,7 +21,7 @@ function startupFunctions(jsonData) {
 const startupMethods = {
   getSetup: function(jsonData) {
     console.log(jsonData);
-    this.getWallet();
+    // this.getWallet();
     let isNewDay = this.checkNewDay();
     this.restockShelves(isNewDay,jsonData)
   },
@@ -27,9 +29,8 @@ const startupMethods = {
     //STEP1 check if wallet exists if not, create localStorage Item
     //STEP2 set innerHTML of wallet element to wallet value
     //STEP3 return wallet value for future use.
-  
-  
-    if (!wallet) { //STEP1
+   
+    if (!wallet_value) { //STEP1
       localStorage.setItem("wallet", 0)
     }
     else { //STEP2
@@ -63,16 +64,30 @@ const startupMethods = {
     }
     return isNewDay;
   },
+  getHTripCount: function(HTrip_value = localStorage.HTripCount) {
+    //STEP1 check if HTrip exists if not, create localStorage Item
+    //STEP2 set innerHTML of HTrip element to HTrip value
+    //STEP3 return HTrip value for future use.
+    
+    if (!HTrip_value) { //STEP1
+      localStorage.setItem("HTripCount", 3)
+    }
+    else { //STEP2
+      HTrip_element = document.getElementById("HTripCount")
+      HTrip_element.innerHTML = HTrip_value;
+    }
+    return HTrip_value;//STEP3
+  },
   restockShelves: function(
       isNewDay,
-  jsonData,
-  shelfLimit = 24,
-  category = [0,0,1,2,2], //creatures, equipment, material,
-  categoryA = category[Math.floor(Math.random()*category.length)],
-  categoryB = category[Math.floor(Math.random()*category.length)],
-  categoryC = category[Math.floor(Math.random()*category.length)],
-  shelf = localStorage.shelf,
-  products = []
+      jsonData,
+      shelfLimit = 24,
+      category = [0,0,1,2,2], 
+      categoryA = category[Math.floor(Math.random()*category.length)],
+      categoryB = category[Math.floor(Math.random()*category.length)],
+      categoryC = category[Math.floor(Math.random()*category.length)],
+      shelf = localStorage.shelf,
+      products = []
   ) {
     /**
      * STEP1 check if new day (continue if new day)
@@ -169,7 +184,7 @@ const startupMethods = {
         }
       }
       if (clear == arrayB.length) {
-        console.log(clear)
+        // console.log(clear)
         keepers.push(arrayA[i]);
       }
     }

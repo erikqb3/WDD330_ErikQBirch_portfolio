@@ -1,14 +1,15 @@
 
 
 // let speed = 50;
-let i=0;
-// import textJason from "../javascript/shopKeeper.js";
+var i=0;
+import { textJason } from "../javascript/shopKeeper.js";
 
 async function main() {
   // let dummyText = "Welcome to the Skyloft Bazaar!";
-  // shopkeeperSays();
-  // getWallet();
-  // startupMethods.getHTripCount();
+  shopkeeperSays();
+  // startupMethods.shopkeeperSays();
+  startupMethods.getWallet();
+  startupMethods.getHTripCount();
   const url = "https://botw-compendium.herokuapp.com/api/v2";
   let data = await fetch(url)
   .then(response => response.json())
@@ -40,6 +41,7 @@ function shopkeeperSays (speed=50) {
     i++;
     setTimeout(shopkeeperSays, speed);
   }
+}
   
   // let shopkeeperJson = "../shopKeeper.json";
   // await fetch(shopkeeperJson)
@@ -56,22 +58,22 @@ function shopkeeperSays (speed=50) {
   //     i++;
   //     setTimeout(shopkeeperSays, speed);
   //   }
-}
+// }
 
-function getWallet (wallet_value = localStorage.wallet) {
-  //STEP1 check if wallet exists if not, create localStorage Item
-  //STEP2 set innerHTML of wallet element to wallet value
-  //STEP3 return wallet value for future use.
+// function getWallet (wallet_value = localStorage.wallet) {
+//   //STEP1 check if wallet exists if not, create localStorage Item
+//   //STEP2 set innerHTML of wallet element to wallet value
+//   //STEP3 return wallet value for future use.
  
-  if (!wallet_value) { //STEP1
-    localStorage.setItem("wallet", 0)
-  }
-  else { //STEP2
-    wallet_element = document.getElementById("wallet")
-    wallet_element.innerHTML = wallet_value;
-  }
-  return wallet_value;//STEP3
-}
+//   if (!wallet_value) { //STEP1
+//     localStorage.setItem("wallet", 0)
+//   }
+//   else { //STEP2
+//     wallet_element = document.getElementById("wallet")
+//     wallet_element.innerHTML = wallet_value;
+//   }
+//   return wallet_value;//STEP3
+// }
 
 
 const startupMethods = {
@@ -80,6 +82,39 @@ const startupMethods = {
     // this.getWallet();
     let isNewDay = this.checkNewDay();
     this.restockShelves(isNewDay,jsonData)
+  },
+  shopkeeperSays: function(speed=50) {
+    // let speed = 50;
+    // let shopKeeper = "../shopKeeper.json";
+    let text = "Welcome to the Skyloft Bazaar!* We have a fine selection of merchandice imported from Zelda: Breathe of the Wild via free online API.";
+    // let text = textJason();
+    // console.log(text.charAt(i), i, text);
+    if (i < text.length) {
+      if (text.charAt(i) == "*") {
+        document.querySelector(".textBox").innerHTML += "<br><br>";
+      }
+      else {
+        document.querySelector(".textBox").innerHTML += text.charAt(i);
+      }
+      i++;
+      console.log(text.charAt(i), i,speed);
+      setTimeout(this.shopkeeperSays, speed);
+    }
+    console.log(text)
+  },
+  getWallet: function(wallet_value = localStorage.wallet) {
+    //STEP1 check if wallet exists if not, create localStorage Item
+    //STEP2 set innerHTML of wallet element to wallet value
+    //STEP3 return wallet value for future use.
+   
+    if (!wallet_value) { //STEP1
+      localStorage.setItem("wallet", 0)
+    }
+    else { //STEP2
+      let wallet_element = document.getElementById("wallet")
+      wallet_element.innerHTML = wallet_value;
+    }
+    return wallet_value;//STEP3
   },
   checkNewDay: function(isNewDay=false, 
     lastVisit=localStorage.lastVisit) {
@@ -115,7 +150,7 @@ const startupMethods = {
       localStorage.setItem("HTripCount", 3)
     }
     else { //STEP2
-      HTrip_element = document.getElementById("HTripCount")
+      let HTrip_element = document.getElementById("HTripCount")
       HTrip_element.innerHTML = HTrip_value;
     }
     return HTrip_value;//STEP3
@@ -152,9 +187,9 @@ const startupMethods = {
     else {shelf = JSON.parse(localStorage.shelf)}; //STEP3
     
     //STEP4
-    selectionsA = this.selectSellables(categoryA, jsonData);
-    selectionsB = this.selectSellables(categoryB, jsonData);
-    selectionsC = this.selectSellables(categoryC, jsonData);
+    let selectionsA = this.selectSellables(categoryA, jsonData);
+    let selectionsB = this.selectSellables(categoryB, jsonData);
+    let selectionsC = this.selectSellables(categoryC, jsonData);
   
     //STEP5
     let partA = this.removeRepeats(selectionsA,selectionsB);
@@ -241,11 +276,6 @@ const startupMethods = {
     return whole;
   }
 }
-
-
-
-
-
 
 
 const todaysOffers_methods = {

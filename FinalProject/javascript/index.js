@@ -1,6 +1,14 @@
+
+
+// let speed = 50;
+let i=0;
+// import textJason from "../javascript/shopKeeper.js";
+
 async function main() {
-  startupMethods.getWallet();
-  startupMethods.getHTripCount();
+  // let dummyText = "Welcome to the Skyloft Bazaar!";
+  // shopkeeperSays();
+  // getWallet();
+  // startupMethods.getHTripCount();
   const url = "https://botw-compendium.herokuapp.com/api/v2";
   let data = await fetch(url)
   .then(response => response.json())
@@ -16,6 +24,54 @@ function startupFunctions(jsonData) {
   // startupMethods.restockShelves(isNewDay,jsonData)
 }
 
+function shopkeeperSays (speed=50) {
+  // let speed = 50;
+  // let shopKeeper = "../shopKeeper.json";
+  let text = "Welcome to the Skyloft Bazaar!* We have a fine selection of merchandice imported from Zelda: Breathe of the Wild via free online API.";
+  // let text = textJason();
+  console.log(text.charAt(i), i);
+  if (i < text.length) {
+    if (text.charAt(i) == "*") {
+      document.querySelector(".textBox").innerHTML += "<br><br>";
+    }
+    else {
+      document.querySelector(".textBox").innerHTML += text.charAt(i);
+    }
+    i++;
+    setTimeout(shopkeeperSays, speed);
+  }
+  
+  // let shopkeeperJson = "../shopKeeper.json";
+  // await fetch(shopkeeperJson)
+  // .then((response) => response.json())
+  // .then((text) => {
+  //   console.log(text.charAt(i), i);
+  //   if (i < text.length) {
+  //     if (text.charAt(i) == "*") {
+  //       document.querySelector(".textBox".greetings).innerHTML += "<br><br>";
+  //     }
+  //     else {
+  //       document.querySelector(".textBox".greetings).innerHTML += text.charAt(i);
+  //     }
+  //     i++;
+  //     setTimeout(shopkeeperSays, speed);
+  //   }
+}
+
+function getWallet (wallet_value = localStorage.wallet) {
+  //STEP1 check if wallet exists if not, create localStorage Item
+  //STEP2 set innerHTML of wallet element to wallet value
+  //STEP3 return wallet value for future use.
+ 
+  if (!wallet_value) { //STEP1
+    localStorage.setItem("wallet", 0)
+  }
+  else { //STEP2
+    wallet_element = document.getElementById("wallet")
+    wallet_element.innerHTML = wallet_value;
+  }
+  return wallet_value;//STEP3
+}
 
 
 const startupMethods = {
@@ -24,20 +80,6 @@ const startupMethods = {
     // this.getWallet();
     let isNewDay = this.checkNewDay();
     this.restockShelves(isNewDay,jsonData)
-  },
-  getWallet: function(wallet_value = localStorage.wallet) {
-    //STEP1 check if wallet exists if not, create localStorage Item
-    //STEP2 set innerHTML of wallet element to wallet value
-    //STEP3 return wallet value for future use.
-   
-    if (!wallet_value) { //STEP1
-      localStorage.setItem("wallet", 0)
-    }
-    else { //STEP2
-      wallet_element = document.getElementById("wallet")
-      wallet_element.innerHTML = wallet_value;
-    }
-    return wallet_value;//STEP3
   },
   checkNewDay: function(isNewDay=false, 
     lastVisit=localStorage.lastVisit) {

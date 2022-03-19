@@ -2,12 +2,13 @@
 
 // let speed = 50;
 var i=0;
-import { textJason } from "../javascript/shopKeeper.js";
+import { shopKeeperJson } from "../javascript/shopKeeper.js";
 
 async function main() {
+  homePage_methods.establishHTML_home();
   // let dummyText = "Welcome to the Skyloft Bazaar!";
-  shopkeeperSays();
-  // startupMethods.shopkeeperSays();
+  shopKeeperSays("greetings");
+  // startupMethods.shopKeeperSays();
   startupMethods.getWallet();
   startupMethods.getHTripCount();
   const url = "https://botw-compendium.herokuapp.com/api/v2";
@@ -25,12 +26,13 @@ function startupFunctions(jsonData) {
   // startupMethods.restockShelves(isNewDay,jsonData)
 }
 
-function shopkeeperSays (speed=50) {
-  // let speed = 50;
-  // let shopKeeper = "../shopKeeper.json";
-  let text = "Welcome to the Skyloft Bazaar!* We have a fine selection of merchandice imported from Zelda: Breathe of the Wild via free online API.";
-  // let text = textJason();
-  console.log(text.charAt(i), i);
+async function shopKeeperSays (
+  saysWhat,
+  speed = 50,
+  textBox = document.querySelector('.textBox'),
+  text = shopKeeperJson()[saysWhat]
+  ) {
+
   if (i < text.length) {
     if (text.charAt(i) == "*") {
       document.querySelector(".textBox").innerHTML += "<br><br>";
@@ -39,12 +41,16 @@ function shopkeeperSays (speed=50) {
       document.querySelector(".textBox").innerHTML += text.charAt(i);
     }
     i++;
-    setTimeout(shopkeeperSays, speed);
+    setTimeout(shopKeeperSays.bind(null,saysWhat), speed);
+    textBox.addEventListener('click', e=> {
+      setTimeout(shopKeeperSays.bind(null,saysWhat), 0.05)
+      // document.querySelector(".textBox").innerHTML = text;
+    })
   }
 }
   
-  // let shopkeeperJson = "../shopKeeper.json";
-  // await fetch(shopkeeperJson)
+  // let shopKeeperJson = "../shopKeeper.json";
+  // await fetch(shopKeeperJson)
   // .then((response) => response.json())
   // .then((text) => {
   //   console.log(text.charAt(i), i);
@@ -56,7 +62,7 @@ function shopkeeperSays (speed=50) {
   //       document.querySelector(".textBox".greetings).innerHTML += text.charAt(i);
   //     }
   //     i++;
-  //     setTimeout(shopkeeperSays, speed);
+  //     setTimeout(shopKeeperSays, speed);
   //   }
 // }
 
@@ -75,6 +81,40 @@ function shopkeeperSays (speed=50) {
 //   return wallet_value;//STEP3
 // }
 
+const globalMethods = {
+  formElement: function(paramElement,paramId="",paramClass="",paramLink="",paramText="") {
+    console.log(paramId);
+    let element = document.createElement(paramElement);
+    element = document.createElement(paramElement);
+    // paramId.setAttribute('id',paramId);
+    element.id = paramId;
+    element.setAttribute('class',paramClass);
+    switch (paramElement) {
+      case 'img':
+        element.setAttribute('src',paramLink);
+        element.setAttribute('alt',paramId);
+        break;
+      case 'a':
+        element.setAttribut('href',paramLink);
+        break;
+      default:
+        break;
+    }
+    if (paramText != "") {
+      element.innerHTML = paramText;
+    }
+    if (paramClass == "viewBtn"){
+      element.addEventListener('click', (e) =>{
+        buttonRouter.newView(e)
+      })
+    }
+    console.log(element)
+    return element;
+  },
+  clearMain: function(){
+    document.querySelector('main').innerHTML = "";
+  }
+}
 
 const startupMethods = {
   getSetup: function(jsonData) {
@@ -83,25 +123,25 @@ const startupMethods = {
     let isNewDay = this.checkNewDay();
     this.restockShelves(isNewDay,jsonData)
   },
-  shopkeeperSays: function(speed=50) {
-    // let speed = 50;
-    // let shopKeeper = "../shopKeeper.json";
-    let text = "Welcome to the Skyloft Bazaar!* We have a fine selection of merchandice imported from Zelda: Breathe of the Wild via free online API.";
-    // let text = textJason();
-    // console.log(text.charAt(i), i, text);
-    if (i < text.length) {
-      if (text.charAt(i) == "*") {
-        document.querySelector(".textBox").innerHTML += "<br><br>";
-      }
-      else {
-        document.querySelector(".textBox").innerHTML += text.charAt(i);
-      }
-      i++;
-      console.log(text.charAt(i), i,speed);
-      setTimeout(this.shopkeeperSays, speed);
-    }
-    console.log(text)
-  },
+  // shopKeeperSays: function(speed=50) {
+  //   // let speed = 50;
+  //   // let shopKeeper = "../shopKeeper.json";
+  //   let text = "Welcome to the Skyloft Bazaar!* We have a fine selection of merchandice imported from Zelda: Breathe of the Wild via free online API.";
+  //   // let text = textJason();
+  //   // console.log(text.charAt(i), i, text);
+  //   if (i < text.length) {
+  //     if (text.charAt(i) == "*") {
+  //       document.querySelector(".textBox").innerHTML += "<br><br>";
+  //     }
+  //     else {
+  //       document.querySelector(".textBox").innerHTML += text.charAt(i);
+  //     }
+  //     i++;
+  //     console.log(text.charAt(i), i,speed);
+  //     setTimeout(this.shopKeeperSays, speed);
+  //   }
+  //   console.log(text)
+  // },
   getWallet: function(wallet_value = localStorage.wallet) {
     //STEP1 check if wallet exists if not, create localStorage Item
     //STEP2 set innerHTML of wallet element to wallet value
@@ -277,6 +317,47 @@ const startupMethods = {
   }
 }
 
+const homePage_methods = {
+  establishHTML_home: function() {
+    console.log("Hellow");
+    let body = document.querySelector('body');
+    let logo = globalMethods.formElement('img',"logo","","../img/Logo.png");
+    let homeView = globalMethods.formElement('main',"homeView");
+    let menuBtns = globalMethods.formElement('div',"menuBtns");
+    let wallet = globalMethods.formElement('div',"wallet", "display", "", `${startupMethods.getWallet}`);
+    let todaysOffers = globalMethods.formElement('div',"todaysOffers","viewBtn","", "Today's Offers");
+    let sellGoods = globalMethods.formElement('div',"sellGoods","viewBtn","", "Sell Goods");
+    let huntingTrips = globalMethods.formElement('div',"huntingTrips","viewBtn","", "Hunting Trips (<span id='HTripCount'></span>)");
+    let textBox = globalMethods.formElement('div',"","textBox");
+
+    menuBtns.appendChild(wallet);
+    menuBtns.appendChild(todaysOffers);
+    menuBtns.appendChild(sellGoods);
+    menuBtns.appendChild(huntingTrips);
+    homeView.appendChild(menuBtns);
+    homeView.appendChild(textBox);
+    body.appendChild(logo);
+    body.appendChild(homeView);
+  }
+}
+
+const buttonRouter = {
+  newView: function(e) {
+    console.log(e.target.id);
+    globalMethods.clearMain();
+    // console.log(e.target.id)
+    switch(e.target.id) {
+      case 'todaysOffers':
+        // globalMethods.clearMain();
+        break;
+      case 'sellGoods':
+        break;
+      case 'huntingTrips':
+        break;
+    }
+  }
+}
+
 
 const todaysOffers_methods = {
 
@@ -289,3 +370,14 @@ const sellStuff_methods = {
 
 
 main();
+
+
+
+
+
+
+
+
+
+
+

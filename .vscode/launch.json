@@ -8,8 +8,10 @@
       "type": "pwa-chrome",
       "request": "launch",
       "name": "Launch Chrome against localhost",
-      "url": "http://localhost:8080",
-      "webRoot": "${workspaceFolder}"
+      "file": "C:\\Users\\User\\OneDrive\\Desktop\\School\\BYU-Idaho 8th Semester (Winter 2022)\\WDD 330 (Web Frontend Dev II)\\WDD330_ErikQBirch_portfolio\\FinalProject\\index.html",
+      // "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}",
+      "runtimeArgs": ["--disable-web-security"]
     }
   ]
 }

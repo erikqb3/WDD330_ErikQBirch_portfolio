@@ -1,30 +1,39 @@
-
-
 // let speed = 50;
 var i=0;
 import { shopKeeperJson } from "../javascript/shopKeeper.js";
 
-async function main() {
-  homePage_methods.establishHTML_home();
-  // let dummyText = "Welcome to the Skyloft Bazaar!";
-  shopKeeperSays("greetings");
-  // startupMethods.shopKeeperSays();
-  startupMethods.getWallet();
-  startupMethods.getHTripCount();
-  const url = "https://botw-compendium.herokuapp.com/api/v2";
-  let data = await fetch(url)
-  .then(response => response.json())
-  .then(startupFunctions) //temp
-  return data;
-}
+import { startupMethods } from "../javascript/startupMethods.js";
 
+import { homeViewMethods } from "../javascript/homeViewMethods.js";
+
+import { todaysOffersMethods } from "../javascript/todaysOffersMethods.js";
+
+
+async function main() {
+  switch(window.location.href){
+    case dummyViews.homeView:
+      homeViewMethods.establishHTML_home();
+      shopKeeperSays("greetings");
+      startupMethods.getWallet();
+      startupMethods.getHTripCount();
+      const url = "https://botw-compendium.herokuapp.com/api/v2";
+      let data = await fetch(url)
+      .then(response => response.json())
+      .then(startupFunctions) //temp
+      return data;
+      break;
+    case dummyViews.todaysOffers:
+      todaysOffersMethods.establishHTML_TO();
+      break;
+  }
+  
+}
 function startupFunctions(jsonData) {
   startupMethods.getSetup(jsonData);
-  // getWallet();
-  // startupMethods.getWallet();
-  // let isNewDay = startupMethods.checkNewDay();
-  // startupMethods.restockShelves(isNewDay,jsonData)
 }
+
+
+
 
 async function shopKeeperSays (
   saysWhat,
@@ -48,40 +57,7 @@ async function shopKeeperSays (
     })
   }
 }
-  
-  // let shopKeeperJson = "../shopKeeper.json";
-  // await fetch(shopKeeperJson)
-  // .then((response) => response.json())
-  // .then((text) => {
-  //   console.log(text.charAt(i), i);
-  //   if (i < text.length) {
-  //     if (text.charAt(i) == "*") {
-  //       document.querySelector(".textBox".greetings).innerHTML += "<br><br>";
-  //     }
-  //     else {
-  //       document.querySelector(".textBox".greetings).innerHTML += text.charAt(i);
-  //     }
-  //     i++;
-  //     setTimeout(shopKeeperSays, speed);
-  //   }
-// }
-
-// function getWallet (wallet_value = localStorage.wallet) {
-//   //STEP1 check if wallet exists if not, create localStorage Item
-//   //STEP2 set innerHTML of wallet element to wallet value
-//   //STEP3 return wallet value for future use.
- 
-//   if (!wallet_value) { //STEP1
-//     localStorage.setItem("wallet", 0)
-//   }
-//   else { //STEP2
-//     wallet_element = document.getElementById("wallet")
-//     wallet_element.innerHTML = wallet_value;
-//   }
-//   return wallet_value;//STEP3
-// }
-
-const globalMethods = {
+export const globalMethods = {
   formElement: function(paramElement,paramId="",paramClass="",paramLink="",paramText="") {
     console.log(paramId);
     let element = document.createElement(paramElement);
@@ -115,258 +91,33 @@ const globalMethods = {
     document.querySelector('main').innerHTML = "";
   }
 }
-
-const startupMethods = {
-  getSetup: function(jsonData) {
-    console.log(jsonData);
-    // this.getWallet();
-    let isNewDay = this.checkNewDay();
-    this.restockShelves(isNewDay,jsonData)
-  },
-  // shopKeeperSays: function(speed=50) {
-  //   // let speed = 50;
-  //   // let shopKeeper = "../shopKeeper.json";
-  //   let text = "Welcome to the Skyloft Bazaar!* We have a fine selection of merchandice imported from Zelda: Breathe of the Wild via free online API.";
-  //   // let text = textJason();
-  //   // console.log(text.charAt(i), i, text);
-  //   if (i < text.length) {
-  //     if (text.charAt(i) == "*") {
-  //       document.querySelector(".textBox").innerHTML += "<br><br>";
-  //     }
-  //     else {
-  //       document.querySelector(".textBox").innerHTML += text.charAt(i);
-  //     }
-  //     i++;
-  //     console.log(text.charAt(i), i,speed);
-  //     setTimeout(this.shopKeeperSays, speed);
-  //   }
-  //   console.log(text)
-  // },
-  getWallet: function(wallet_value = localStorage.wallet) {
-    //STEP1 check if wallet exists if not, create localStorage Item
-    //STEP2 set innerHTML of wallet element to wallet value
-    //STEP3 return wallet value for future use.
-   
-    if (!wallet_value) { //STEP1
-      localStorage.setItem("wallet", 0)
-    }
-    else { //STEP2
-      let wallet_element = document.getElementById("wallet")
-      wallet_element.innerHTML = wallet_value;
-    }
-    return wallet_value;//STEP3
-  },
-  checkNewDay: function(isNewDay=false, 
-    lastVisit=localStorage.lastVisit) {
-    //STEP1: check if this was user's first appearence
-    //STEP2: compare lastVisit to today and return results
-    //STEP3: if new day, reset lastVisit
-  
-    //STEP1
-    if (!lastVisit) {
-      localStorage.setItem('lastVisit',parseInt(new Date().getDate()));
-    }
-    else {};
-  
-    //STEP2
-    let today = new Date();
-    if (parseInt(lastVisit) == today.getDate()) {
-      console.log("NO");
-    }
-    else {
-      //STEP3
-      isNewDay = true;
-      localStorage.setItem('lastVisit',parseInt(new Date().getDate()));
-      console.log("YES")
-    }
-    return isNewDay;
-  },
-  getHTripCount: function(HTrip_value = localStorage.HTripCount) {
-    //STEP1 check if HTrip exists if not, create localStorage Item
-    //STEP2 set innerHTML of HTrip element to HTrip value
-    //STEP3 return HTrip value for future use.
-    
-    if (!HTrip_value) { //STEP1
-      localStorage.setItem("HTripCount", 3)
-    }
-    else { //STEP2
-      let HTrip_element = document.getElementById("HTripCount")
-      HTrip_element.innerHTML = HTrip_value;
-    }
-    return HTrip_value;//STEP3
-  },
-  restockShelves: function(
-      isNewDay,
-      jsonData,
-      shelfLimit = 24,
-      category = [0,0,1,2,2], 
-      categoryA = category[Math.floor(Math.random()*category.length)],
-      categoryB = category[Math.floor(Math.random()*category.length)],
-      categoryC = category[Math.floor(Math.random()*category.length)],
-      shelf = localStorage.shelf,
-      products = []
-  ) {
-    /**
-     * STEP1 check if new day (continue if new day)
-     * STEP2 get shelf from localStorage if exist (create if it doesn't)
-     * STEP3 change from string to array
-     * STEP4 randomly choose which categories to pull from 
-     * STEP5 remove repeats by comparing and combining and comparing some more
-     * STEP6 Once products array is full, reassign value of localStorage.shelf.
-     */
-  
-  
-  if (!isNewDay) { //STEP1 //temp -> (isNewDay)
-    console.log(jsonData);
-  
-    //STEP2
-    if (!shelf) {
-      shelf = []
-      localStorage.setItem('shelf',JSON.stringify(shelf));
-    }
-    else {shelf = JSON.parse(localStorage.shelf)}; //STEP3
-    
-    //STEP4
-    let selectionsA = this.selectSellables(categoryA, jsonData);
-    let selectionsB = this.selectSellables(categoryB, jsonData);
-    let selectionsC = this.selectSellables(categoryC, jsonData);
-  
-    //STEP5
-    let partA = this.removeRepeats(selectionsA,selectionsB);
-    let partB = this.removeRepeats(selectionsB,selectionsA);
-    products = this.compileProducts(products, partA);
-    products = this.compileProducts(products, partB);
-    let partC = this.removeRepeats(selectionsC, products);
-    products = this.compileProducts(products, partC)
-  
-    //STEP6
-    localStorage.setItem('shelf',JSON.stringify(products));
-    console.log(JSON.parse(localStorage.shelf), "SHELF");  //works
-  }
-  },
-  selectSellables: function(category,jsonData, sellables=[], products=[]) {
-    /**
-     * STEP1 use switch to determine which category to choose from
-     * STEP2 push random numbers into an array and loop through array to check for copies, replace dooplicates with "copy"
-     * STEP4 add sellables to products array based on numbers from numbers array (if 'copy', skip)
-     */
-  
-    //STEP1
-    switch(category) {
-      case 0:
-        sellables = jsonData.data.creatures.food;
-        break;
-      case 1:
-        sellables = jsonData.data.equipment;
-        break;
-      case 2:
-        sellables = jsonData.data.materials;
-        break;
-    }
-    
-    //STEP2
-    let numbers = [];
-    for (let i=0; i<=7; i++) {
-      let numb = Math.floor(Math.random()*sellables.length);
-      numbers.push(numb);
-      if (i>0) {
-        for (let ii=0; ii<(numbers.length - 1); ii++) {
-          if (numbers[ii] == numb) {
-            numbers[ii] = "copy";}}}}
-  
-    //STEP3
-    for (let iii=0; iii<numbers.length; iii++){
-      if (numbers[iii] != "copy") {
-        products.push(sellables[numbers[iii]]);
-      }
-    }
-  
-    return (products);
-  },
-  removeRepeats: function(arrayA,arrayB, keepers=[]) {
-    /**
-     * STEP1 loop through arrayA, reset clear count
-     * STEP2 loop through arrayB
-     * STEP3a if item in arrayA != arrayB, it clears
-     * STEP4 if number of clear tokens = arrayB.length, add 
-     */
-  
-    //STEP1
-    for (let i=0; i<arrayA.length; i++) {
-      let clear = arrayB.length;
-      //STEP2
-      for (let ii=0; ii<arrayB.length; ii++) {
-        if (arrayA[i] == arrayB[ii]) { //STEP3
-          clear--;
-        }
-      }
-      if (clear == arrayB.length) {
-        // console.log(clear)
-        keepers.push(arrayA[i]);
-      }
-    }
-    // console.log(keepers)
-    return(keepers);
-  },
-  compileProducts: function(whole, part) {
-    //loop through part array and push to whole array
-    for (let i=0; i<part.length; i++) {
-      whole.push(part[i]);
-    }
-    return whole;
-  }
-}
-
-const homePage_methods = {
-  establishHTML_home: function() {
-    console.log("Hellow");
-    let body = document.querySelector('body');
-    let logo = globalMethods.formElement('img',"logo","","../img/Logo.png");
-    let homeView = globalMethods.formElement('main',"homeView");
-    let menuBtns = globalMethods.formElement('div',"menuBtns");
-    let wallet = globalMethods.formElement('div',"wallet", "display", "", `${startupMethods.getWallet}`);
-    let todaysOffers = globalMethods.formElement('div',"todaysOffers","viewBtn","", "Today's Offers");
-    let sellGoods = globalMethods.formElement('div',"sellGoods","viewBtn","", "Sell Goods");
-    let huntingTrips = globalMethods.formElement('div',"huntingTrips","viewBtn","", "Hunting Trips (<span id='HTripCount'></span>)");
-    let textBox = globalMethods.formElement('div',"","textBox");
-
-    menuBtns.appendChild(wallet);
-    menuBtns.appendChild(todaysOffers);
-    menuBtns.appendChild(sellGoods);
-    menuBtns.appendChild(huntingTrips);
-    homeView.appendChild(menuBtns);
-    homeView.appendChild(textBox);
-    body.appendChild(logo);
-    body.appendChild(homeView);
-  }
-}
-
-const buttonRouter = {
+export const buttonRouter = {
   newView: function(e) {
     console.log(e.target.id);
     globalMethods.clearMain();
     // console.log(e.target.id)
     switch(e.target.id) {
       case 'todaysOffers':
+        window.location.assign(dummyViews.todaysOffers)
         // globalMethods.clearMain();
         break;
       case 'sellGoods':
+        window.location.assign(dummyViews.sellGoods)
         break;
       case 'huntingTrips':
+        window.location.assign(dummyViews.huntingTrips)
         break;
+      case 'home':
+        homeViewMethods.establishHTML_home(); //THIS IS HOW IT SHOULD WORK
     }
   }
 }
-
-
-const todaysOffers_methods = {
-
+const dummyViews = {
+  "homeView": "http://127.0.0.1:5503/FinalProject/views/index.html",
+  "todaysOffers": "http://127.0.0.1:5503/FinalProject/views/todaysOffers_dmy.html",
+  "sellGoods": "http://127.0.0.1:5503/FinalProject/views/sellGoods_dmy.html",
+  "huntingTrips": "http://127.0.0.1:5503/FinalProject/views/huntingTrips_dmy.html"
 }
-
-const sellStuff_methods = {
-
-}
-
 
 
 main();

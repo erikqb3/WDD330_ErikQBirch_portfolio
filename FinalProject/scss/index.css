@@ -113,6 +113,165 @@ main#homeView div.textBox {
   overflow-y: auto;
 }
 
+main#todaysOffers {
+  height: 70%;
+  width: 90%;
+  background-color: rgba(167, 137, 94, 0.9);
+  border: 5px solid rgba(36, 17, 3, 0.849);
+  outline: 2.5px solid #a58456;
+  margin: 1rem auto 0.25rem auto;
+  border-radius: 0.5rem;
+}
+
+main#todaysOffers h1 {
+  padding: 1rem 0 1rem 0;
+  text-align: Center;
+  margin: 0.5rem auto;
+  font-size: 2.5rem;
+  width: 90%;
+}
+
+main#todaysOffers h1#displayCase {
+  color: #009416;
+  background-color: #241103;
+  text-shadow: 2px 2px 2px white;
+  border: 2px dashed #009416;
+  outline: 5px solid #241103;
+}
+
+main#todaysOffers h1#inventory {
+  color: #940000;
+  background-color: #686868;
+  text-shadow: 2px 2px 2px white;
+  border: 2px dashed #940000;
+  outline: 5px solid #444444;
+}
+
+main#todaysOffers ul#scrollableList {
+  width: 100%;
+  height: 50%;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-top: 0.5rem solid rgba(0, 0, 0, 0.01);
+  border-bottom: 0.5rem solid rgba(0, 0, 0, 0.01);
+  margin: 0.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+main#todaysOffers ul#scrollableList li {
+  height: 45%;
+  width: 82.5%;
+  border-radius: 0.5rem;
+  background: radial-gradient(circle, rgba(20, 20, 30, 0.5) 0%, rgba(50, 50, 60, 0.75) 75%);
+  background-color: rgba(9, 9, 9, 0.5);
+  border: 1px solid #a7a7a7;
+  outline: 5px solid rgba(9, 9, 9, 0.5);
+  color: whitesmoke;
+  margin: 01rem auto;
+  padding: 0.5rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main#todaysOffers ul#scrollableList li img {
+  width: 30%;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+}
+
+main#todaysOffers ul#scrollableList li div.itemInfo {
+  margin-left: 1.5rem;
+}
+
+main#todaysOffers ul#scrollableList li div.itemInfo h2 {
+  margin: 0;
+}
+
+main#todaysOffers ul#scrollableList li div.itemInfo p {
+  margin: 0.25rem 0;
+}
+
+main#todaysOffers div#infoANDinteraction {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  height: 27.5%;
+  margin-bottom: 1rem;
+}
+
+main#todaysOffers div#infoANDinteraction div#nav,
+main#todaysOffers div#infoANDinteraction div#wallet,
+main#todaysOffers div#infoANDinteraction div#backBtn,
+main#todaysOffers div#infoANDinteraction div#itemBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+}
+
+main#todaysOffers div#infoANDinteraction div#backBtn,
+main#todaysOffers div#infoANDinteraction div#itemBtn {
+  text-align: center;
+  border-radius: 15px;
+  border: 3px solid #ffdb7a;
+  background: radial-gradient(circle, rgba(71, 47, 19, 0.896) 0%, rgba(0, 0, 0, 0.8) 72%);
+  color: whitesmoke;
+  padding: 7.5% 22.5%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 1% auto;
+}
+
+main#todaysOffers div#wallet {
+  background-color: #ccbe95;
+  border: 1px solid rgba(36, 17, 3, 0.849);
+  outline: 2px solid #ccbe95;
+  display: inline-block;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  text-align: right;
+  border-radius: 5px;
+  padding: 7.5% 10% 7.5% 45%;
+  width: 100%;
+}
+
+main#todaysOffers div#nav {
+  color: whitesmoke;
+  font-size: 2rem;
+}
+
+main#todaysOffers div#nav span.arrow:hover,
+main#todaysOffers div#nav span.arrow:active {
+  color: #241103;
+  font-weight: bolder;
+}
+
+main#todaysOffers div.textBox {
+  color: whitesmoke;
+  height: 20vh;
+  width: 90%;
+  padding: 5%;
+  margin: 10px auto;
+  border-radius: 5px;
+  border: 2.5% solid rgba(71, 47, 19, 0.25);
+  background: radial-gradient(circle, rgba(66, 55, 42, 0.514) 0%, rgba(37, 25, 10, 0.896) 90%);
+  overflow-y: auto;
+}
+
 @media only screen and (min-width: 760px) {
   body {
     background-image: url("/FinalProject/img/wallPaper_full.jpg");

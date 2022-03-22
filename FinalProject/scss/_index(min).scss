@@ -114,7 +114,7 @@ main#todaysOffers {
     padding: 1rem 0 1rem 0;
     text-align: Center;
     margin: 0.5rem auto;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     width: 90%;
   }
   h1#displayCase {
@@ -141,7 +141,7 @@ main#todaysOffers {
     margin: 0.5rem 0;
     padding: 0;
     list-style: none;
-    li {
+    li.item_card {
       height: 45%;
       width: 82.5%;
       border-radius: 0.5rem;
@@ -165,16 +165,52 @@ main#todaysOffers {
         align-self: center;
         justify-self: center;
       }
-      div.itemInfo {
+      div.item_info {
         margin-left: 1.5rem;
+        overflow-y: hidden;
         h2 {
+          // max-width: 200px;
           margin: 0;
+          // overflow-x: hidden;
         }
         p {
           margin: 0.25rem 0;
         }
       }
     }
+    li.invItem {
+      background-color: rgb(204, 190, 149);
+      border: 1px solid rgba(36, 17, 3, 0.849);
+      outline: 2px solid rgb(204, 190, 149);
+      border-radius: 5px;
+      height: 20%;
+      width: 82.5%;
+      border-radius: 0.5rem;
+      margin: 01rem auto;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  div#nav {
+    color: rgba(36, 17, 3, 1);
+    font-size: 2rem;
+    span.arrow:hover,
+    span.arrow:active {
+      color: whitesmoke;
+      font-weight: bolder;
+    }
+  }
+  div#wallet {
+    background-color: rgb(204, 190, 149);
+    border: 1px solid rgba(36, 17, 3, 0.849);
+    outline: 2px solid rgb(204, 190, 149);
+    display: inline-block;
+    max-width: fit-content;
+    text-align: right;
+    border-radius: 5px;
+    padding: 7.5% 10% 7.5% 45%;
+    width: 100%;
   }
   div#infoANDinteraction {
     display: grid;
@@ -205,28 +241,18 @@ main#todaysOffers {
       width: fit-content;
       margin: 1% auto;
     }
-  }
-
-  div#wallet {
-    background-color: rgb(204, 190, 149);
-    border: 1px solid rgba(36, 17, 3, 0.849);
-    outline: 2px solid rgb(204, 190, 149);
-    display: inline-block;
-    max-width: fit-content;
-    text-align: right;
-    border-radius: 5px;
-    padding: 7.5% 10% 7.5% 45%;
-    width: 100%;
-  }
-  div#nav {
-    color: whitesmoke;
-    font-size: 2rem;
-    span.arrow:hover,
-    span.arrow:active {
-      color: rgba(36, 17, 3, 1);
-      font-weight: bolder;
+    div#backBtn:hover,
+    div#itemBtn:hover {
+      border: 4px solid rgb(255, 217, 113);
+      background: radial-gradient(
+        circle,
+        rgba(158, 96, 25, 0.896) 0%,
+        rgba(0, 0, 0, 0.8) 80%
+      );
+      text-shadow: 1px 1px 1px black;
     }
   }
+
   div.textBox {
     color: whitesmoke;
     height: 20vh;

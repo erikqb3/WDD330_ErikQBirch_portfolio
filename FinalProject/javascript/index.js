@@ -32,17 +32,15 @@ function startupFunctions(jsonData) {
   startupMethods.getSetup(jsonData);
 }
 
-
-
-
 async function shopKeeperSays (
   saysWhat,
   speed = 50,
+  stop,
   textBox = document.querySelector('.textBox'),
   text = shopKeeperJson()[saysWhat]
   ) {
 
-  if (i < text.length) {
+  if ((i < text.length) && (!stop)) {
     if (text.charAt(i) == "*") {
       document.querySelector(".textBox").innerHTML += "<br><br>";
     }
@@ -52,10 +50,11 @@ async function shopKeeperSays (
     i++;
     setTimeout(shopKeeperSays.bind(null,saysWhat), speed);
     textBox.addEventListener('click', e=> {
-      setTimeout(shopKeeperSays.bind(null,saysWhat), 0.05)
+      setTimeout(shopKeeperSays.bind(null,saysWhat,true), 0.05)
       // document.querySelector(".textBox").innerHTML = text;
     })
   }
+  else shopKeeperSaysJson()["clear"];
 }
 export const globalMethods = {
   formElement: function(paramElement,paramId="",paramClass="",paramLink="",paramText="") {
@@ -84,22 +83,28 @@ export const globalMethods = {
         buttonRouter.newView(e)
       })
     }
+    if (paramClass == "changeBtn") {
+      element.addEventListener('click',(e) =>{
+        buttonRouter.changeSettings(e)
+      })
+    }
     console.log(element)
     return element;
   },
-  clearMain: function(){
-    document.querySelector('main').innerHTML = "";
+  clearBody: function(){
+    document.querySelector('body').innerHTML = "";
   }
 }
 export const buttonRouter = {
   newView: function(e) {
     console.log(e.target.id);
-    globalMethods.clearMain();
+    globalMethods.clearBody();
     // console.log(e.target.id)
     switch(e.target.id) {
       case 'todaysOffers':
-        window.location.assign(dummyViews.todaysOffers)
-        // globalMethods.clearMain();
+        clearTimeout(shopKeeperSays)
+        todaysOffersMethods.establishHTML_TO();
+        startupMethods.getWallet();
         break;
       case 'sellGoods':
         window.location.assign(dummyViews.sellGoods)
@@ -108,7 +113,30 @@ export const buttonRouter = {
         window.location.assign(dummyViews.huntingTrips)
         break;
       case 'home':
+      case 'backBtn':
         homeViewMethods.establishHTML_home(); //THIS IS HOW IT SHOULD WORK
+        startupMethods.getWallet();
+        startupMethods.getHTripCount();
+        break;
+    }
+  },
+  changeSettings: function(e) {
+    console.log(e.target.id);
+    let button = e.target
+    let header = document.querySelector("h1");
+    switch(button.id) {
+      case 'itemBtn':
+        if (button.innerHTML == "Inventory") {
+          header.id = "inventory";
+          header.innerHTML = "Your Inventory";
+          button.innerHTML = "Display"
+        }
+        else if (button.innerHTML == "Display") {
+          header.id = "displayCase";
+          header.innerHTML = "Shop's Display";
+          button.innerHTML = "Inventory"
+        }
+        break;
     }
   }
 }

@@ -1,5 +1,5 @@
 // let speed = 50;
-var i=0;
+// var i=0;
 import { shopKeeperJson } from "../javascript/shopKeeper.js";
 
 import { startupMethods } from "../javascript/startupMethods.js";
@@ -35,27 +35,27 @@ function startupFunctions(jsonData) {
 async function shopKeeperSays (
   saysWhat,
   speed = 50,
-  stop,
-  textBox = document.querySelector('.textBox'),
+  // textBox = document.querySelector('.textBox'),
+  // buttonArray = document.querySelectorAll('.viewBtn'),
   text = shopKeeperJson()[saysWhat]
   ) {
-
-  if ((i < text.length) && (!stop)) {
+  let newText = ""
+  console.log(speed, "text.length")
+  for (let i=0; i <= text.length; i++) {
     if (text.charAt(i) == "*") {
-      document.querySelector(".textBox").innerHTML += "<br><br>";
+      newText += "<br><br>"
     }
     else {
-      document.querySelector(".textBox").innerHTML += text.charAt(i);
+      newText += text.charAt(i);
     }
-    i++;
-    setTimeout(shopKeeperSays.bind(null,saysWhat), speed);
-    textBox.addEventListener('click', e=> {
-      setTimeout(shopKeeperSays.bind(null,saysWhat,true), 0.05)
-      // document.querySelector(".textBox").innerHTML = text;
-    })
+    setTimeout(function(i){addLetter(newText)}, speed)
   }
-  else shopKeeperSaysJson()["clear"];
 }
+
+function addLetter(newText) {
+  document.querySelector(".textBox").innerHTML = newText;
+}
+
 export const globalMethods = {
   formElement: function(paramElement,paramId="",paramClass="",paramLink="",paramText="") {
     console.log(paramId);
@@ -105,6 +105,7 @@ export const buttonRouter = {
         clearTimeout(shopKeeperSays)
         todaysOffersMethods.establishHTML_TO();
         startupMethods.getWallet();
+        shopKeeperSays("shopDisplay");
         break;
       case 'sellGoods':
         window.location.assign(dummyViews.sellGoods)
@@ -117,6 +118,7 @@ export const buttonRouter = {
         homeViewMethods.establishHTML_home(); //THIS IS HOW IT SHOULD WORK
         startupMethods.getWallet();
         startupMethods.getHTripCount();
+        shopKeeperSays("greetings");
         break;
     }
   },

@@ -3,6 +3,7 @@ import { globalMethods } from "./index.js";
 import { startupMethods } from "./startupMethods.js";
 
 export const homeViewMethods = {
+  // formElement: function(paramElement,paramId="",paramClass="",paramLink="",paramText="")
   establishHTML_home: function() {
     console.log("Hellow");
     let body = document.querySelector('body');

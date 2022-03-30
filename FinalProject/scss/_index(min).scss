@@ -70,6 +70,7 @@ main#homeView {
         rgba(158, 96, 25, 0.896) 0%,
         rgba(0, 0, 0, 0.8) 80%
       );
+      cursor: pointer;
     }
     div#todaysOffers {
       grid-column: 2;
@@ -159,11 +160,12 @@ main#todaysOffers {
       padding: 0.5rem 1rem;
       display: flex;
       img {
-        width: 30%;
+        width: 40%;
         margin: 0;
         display: flex;
         align-self: center;
         justify-self: center;
+        border: 1px solid black;
       }
       div.item_info {
         margin-left: 1.5rem;
@@ -177,6 +179,19 @@ main#todaysOffers {
           margin: 0.25rem 0;
         }
       }
+    }
+    li.item_card:hover,
+    li.item_card:active {
+      background: radial-gradient(
+        circle,
+        rgba(92, 54, 0, 0.75) 0%,
+        rgba(26, 16, 1, 0.5) 75%,
+        // rgba(0, 0, 0, 0.8) 90%
+      );
+      background-color: rgba(9, 9, 9, 0.5);
+      border: 1px solid rgb(167, 167, 167);
+      outline: 5px solid rgba(9, 9, 9, 0.5);
+      cursor: pointer;
     }
     li.invItem {
       background-color: rgb(204, 190, 149);
@@ -199,6 +214,7 @@ main#todaysOffers {
     span.arrow:active {
       color: whitesmoke;
       font-weight: bolder;
+      cursor: pointer;
     }
   }
   div#wallet {
@@ -250,6 +266,7 @@ main#todaysOffers {
         rgba(158, 96, 25, 0.896) 0%,
         rgba(0, 0, 0, 0.8) 80%
       );
+      cursor: pointer;
     }
   }
 
@@ -270,5 +287,27 @@ main#todaysOffers {
       // rgba(0, 0, 0, 0.8) 90%
     );
     overflow-y: auto;
+  }
+
+  div#itemView {
+    width: 95%;
+    height: 75vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 2.5%;
+    h1 {
+      color: whitesmoke;
+    }
+    img {
+      justify-self: center;
+      align-self: center;
+      width: 75%;
+      margin: 0 auto;
+      text-align: center;
+      left: 25%;
+    }
+    // margin: 0 auto;
   }
 }

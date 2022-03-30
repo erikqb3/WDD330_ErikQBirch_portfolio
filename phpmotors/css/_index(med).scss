@@ -1,0 +1,307 @@
+body {
+  background-image: url('/phpmotors/images/site/small_check(1).jpg');
+
+  // background-position: center;
+  // background-repeat: repeat;
+  // background-size: cover;
+  // margin: 0% auto;
+  // background-color: red;
+}
+
+main {
+  border: 4px solid #4c96d7;
+  width: 80%;
+  margin: 1.5% auto;
+}
+
+header {
+  span {
+    font-size: 1.2rem;
+  }
+  a#imgLink {
+    width: 27.5%;
+    img {
+    }
+  }
+  div#loggedInSettings {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    font-family: 'Share Tech Mono', monospace;
+    cursor: pointer;
+    a:link,
+    a:visited,
+    a:active {
+      color: #3a3a3a;
+      text-decoration: none;
+      width: max-content;
+      font-size: 1rem;
+    }
+    a:hover {
+      color: #4c96d7;
+    }
+  }
+}
+
+nav {
+  font-size: 0.75rem;
+  ul {
+    li {
+      a {
+      }
+      a:hover {
+      }
+    }
+  }
+}
+
+div#contentWrap {
+  // min-height: 100%;
+  padding-bottom: 20vh;
+}
+div#mainContent {
+  h1 {
+  }
+  p {
+  }
+  div#hero {
+    padding-bottom: 2.5rem;
+    img {
+    }
+    #comment {
+      h3 {
+        margin: 0.5rem 0;
+      }
+      ul {
+        li {
+          font-size: 0.75rem;
+        }
+      }
+    }
+    button {
+      top: 27%;
+      left: 2.5%;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      padding: 0 1rem;
+    }
+  }
+  div#accountManagementDiv > a,
+  div#vehicleManagementDiv > a {
+    font-size: 1.25rem;
+  }
+  div#inputHolder {
+    p {
+      font-size: 0.75rem;
+      margin: 5% 0;
+    }
+    div#thumbnailGallery {
+      ul {
+        display: flex;
+        list-style: none;
+        li > img {
+          width: 30%;
+        }
+      }
+    }
+
+    form {
+      fieldset {
+        span {
+          font-size: 0.75rem;
+        }
+        legend {
+        }
+        p {
+          // margin-top: 0;
+        }
+        input {
+          font-size: 1.25rem;
+          line-height: 2.5rem;
+        }
+        div.buttonHolder {
+          a,
+          button.formBtn,
+          button.formBtn {
+            font-size: 1.5rem;
+            width: 102%;
+            margin: 2.5% auto;
+            line-height: 3rem;
+          }
+          a:hover,
+          button.formBtn:hover,
+          button.formBtn:hover {
+            background-color: #3a3a3a;
+          }
+        }
+      }
+    }
+  }
+
+  img#delorean {
+  }
+
+  div#contentHolder {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 2rem;
+    .contentHolder_heading {
+      margin: auto 0 0.5rem 0;
+    }
+    section#reviews {
+      h2 {
+      }
+      ul {
+        padding: 0 0 0 10px;
+        margin: 0;
+        li {
+        }
+      }
+    }
+    section#upgrades {
+      margin: 0;
+      h2 {
+        padding-left: 5%;
+      }
+      ul {
+        li {
+          a {
+            div.upgradeHolder {
+              img {
+                width: 30%;
+              }
+            }
+            p {
+              font-size: 0.9rem;
+              line-height: 1.5rem;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  div.resultCard {
+    a {
+      margin: 2.5rem auto;
+      img {
+        width: 200px;
+        height: 100%;
+        align-self: center;
+        justify-self: center;
+        // border: 5px solid red;
+        margin: 0 auto 0 auto;
+      }
+      div.resultInfo {
+        width: 60%;
+        // margin: 0 0 0 auto;
+        h3,
+        h4 {
+          margin: 0.25rem auto;
+          color: blue;
+          font-size: 1rem;
+        }
+        h3 {
+          font-size: 1.25rem;
+        }
+        p {
+          padding: 0;
+          margin: 0;
+          font-size: 0.5rem;
+        }
+      }
+    }
+    a:hover {
+      div.resultInfo > p {
+        color: black;
+        text-shadow: none;
+      }
+    }
+    a:visited {
+      div.resultInfo {
+        h3,
+        h4 {
+          color: rgb(127, 0, 153);
+        }
+      }
+    }
+  }
+  div#pagNav_bar {
+    width: fit-content;
+    margin: 0 auto;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+    a {
+      margin: 0 0.5rem;
+    }
+    a#current {
+      text-decoration: underline;
+    }
+  }
+}
+
+ul#inv-display {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  row-gap: 2.5%;
+  flex-wrap: wrap;
+  li {
+    width: 45%;
+    background-color: #dadada99;
+    // border: 0.1px solid black;
+    img {
+      width: 100%;
+    }
+    span {
+    }
+  }
+}
+
+div#vehicDescriptContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  img {
+    order: 1;
+    width: 47.5%;
+    margin-left: 2.5%;
+    // height: 100%;
+    object-fit: scale-down;
+  }
+  div#vehicInfo {
+    order: 2;
+    background-color: #dadada99;
+    width: 40%;
+    padding: 2.5%;
+    margin: 2.5%;
+    p:nth-of-type(3) {
+      // color: red;
+      font-weight: bold;
+    }
+  }
+  div#thumbnail_list {
+    order: 3;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    img {
+      width: 20%;
+      margin: 0 auto;
+    }
+    img:hover {
+      // border: 1px solid red;
+      transform: scale(1.5);
+    }
+  }
+}
+
+footer {
+  font-size: 0.75rem;
+  height: 20vh;
+  p {
+  }
+}

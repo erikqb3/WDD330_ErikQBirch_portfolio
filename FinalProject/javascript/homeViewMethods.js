@@ -10,7 +10,7 @@ export const homeViewMethods = {
     let logo = globalMethods.formElement('img',"logo","","../img/Logo.png");
     let homeView = globalMethods.formElement('main',"homeView");
     let menuBtns = globalMethods.formElement('div',"menuBtns");
-    let wallet = globalMethods.formElement('div',"wallet", "display", "", "");
+    let wallet = globalMethods.formElement('div',"wallet", "display", "", `R ${localStorage.wallet}`);
     let todaysOffers = globalMethods.formElement('div',"todaysOffers","viewBtn","", "Today's Offers");
     let sellGoods = globalMethods.formElement('div',"sellGoods","viewBtn","", "Sell Goods");
     let huntingTrips = globalMethods.formElement('div',"huntingTrips","viewBtn","", "Hunting Trips (<span id='HTripCount'></span>)");

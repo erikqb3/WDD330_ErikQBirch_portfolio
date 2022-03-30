@@ -1,0 +1,1240 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap");
+body {
+  padding: 0;
+  margin: 0;
+  display: block;
+  font-size: 100%;
+  min-height: 100vh;
+}
+
+main {
+  background-color: white;
+  width: 100vw;
+  margin: 0;
+  position: relative;
+  min-height: 100%;
+}
+
+div#contentWrap {
+  min-height: 92.5vh;
+  padding-bottom: 7.5vh;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+header a#imgLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 35%;
+  margin: 0 auto 0 0;
+}
+
+header a#imgLink img {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0;
+  width: 100%;
+}
+
+header label#searchBtn {
+  margin: 0 0 0 1%;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  z-index: 2;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+@-webkit-keyframes searchBar {
+  from {
+    display: none;
+    width: 0%;
+  }
+  to {
+    display: -webkit-box;
+    display: flex;
+    width: 25%;
+  }
+}
+
+@keyframes searchBar {
+  from {
+    display: none;
+    width: 0%;
+  }
+  to {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 25%;
+  }
+}
+
+header input[type='text'] {
+  height: 1.75rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+  display: none;
+}
+
+header input#searchBar {
+  -webkit-animation-name: searchBar;
+          animation-name: searchBar;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+header div#loggedInSettings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-family: 'Share Tech Mono', monospace;
+  margin: 0 2.5% 0 1%;
+  cursor: pointer;
+}
+
+header div#loggedInSettings a:link,
+header div#loggedInSettings a:visited,
+header div#loggedInSettings a:active {
+  color: #3a3a3a;
+  text-decoration: none;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 0.75rem;
+}
+
+header div#loggedInSettings a:hover {
+  color: #4c96d7;
+}
+
+nav {
+  font-size: 0.75rem;
+  font-family: 'Orbitron', sans-serif;
+  width: 100%;
+  background-color: #3a3a3a;
+  border: none;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+nav ul {
+  margin-top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: start;
+      align-content: start;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  overflow-x: scroll;
+  text-align: center;
+}
+
+nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  line-height: 2.5rem;
+  width: auto;
+  text-align: center;
+}
+
+nav ul li a {
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  padding: 0 1rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+nav ul li > a:hover,
+nav ul li > a:active,
+nav ul li:hover {
+  z-index: 2;
+  color: #3a3a3a;
+  font-weight: bold;
+  background-color: #4c96d7;
+}
+
+nav ::-webkit-scrollbar {
+  width: 10px;
+  border: none;
+}
+
+nav ::-webkit-scrollbar-track {
+  background-color: white;
+  border: none;
+}
+
+nav ::-webkit-scrollbar-thumb {
+  background-color: white;
+  border: none;
+}
+
+nav ::-webkit-scrollbar-thumb:hover {
+  background-color: #dfdfdf;
+  border: none;
+}
+
+div#mainContent {
+  height: 100%;
+}
+
+div#mainContent h1,
+div#mainContent h2 {
+  font-size: 1rem;
+  padding-left: 2%;
+  font-family: 'Orbitron', sans-serif;
+}
+
+div#mainContent p {
+  font-size: 0.75rem;
+  padding-left: 2%;
+  font-family: 'Orbitron', sans-serif;
+}
+
+div#mainContent a:link,
+div#mainContent a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+div#mainContent a:hover,
+div#mainContent a:active {
+  color: #4c96d7;
+  text-shadow: 0.5px 0.5px #3a3a3a;
+}
+
+div#mainContent div.managementBtn > a:link,
+div#mainContent div.managementBtn > a:visited {
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: bold;
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid #3a3a3a;
+  margin: 2% 0 0 2%;
+  font-size: 1rem;
+  padding: 1.25%;
+  background-color: #4c96d7;
+}
+
+div#mainContent div.managementBtn > a:hover,
+div#mainContent div.managementBtn > a:active {
+  background-color: #2e5b83;
+  color: white;
+}
+
+div#mainContent div#hero {
+  position: relative;
+  padding-bottom: 5rem;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+div#mainContent div#hero img {
+  display: block;
+  width: 100%;
+  margin: 0;
+  float: none;
+}
+
+div#mainContent div#hero #comment {
+  position: absolute;
+  top: 0;
+  left: 2.5%;
+  color: #2e5b83;
+}
+
+div#mainContent div#hero #comment h3 {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+}
+
+div#mainContent div#hero #comment ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+div#mainContent div#hero button {
+  position: absolute;
+  font-family: sans-serif;
+  top: 80%;
+  left: 30%;
+  background-color: #4c96d7;
+  color: #3a3a3a;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  padding: 0 2rem;
+  cursor: pointer;
+}
+
+div#mainContent div#hero button:hover {
+  background-color: #2e5b83;
+  color: white;
+}
+
+div#mainContent div#inputHolder {
+  width: 75%;
+  margin: 5% auto 10% auto;
+  display: block;
+  background-color: #2e5b83;
+  padding: 2.5% 5% 5% 5%;
+  color: white;
+  border-radius: 5%;
+  font-family: 'Orbitron', sans-serif;
+}
+
+div#mainContent div#inputHolder p {
+  width: 97.5%;
+  margin: 5% auto;
+  font-size: 0.6rem;
+  padding: 0;
+}
+
+div#mainContent form {
+  display: block;
+}
+
+div#mainContent form fieldset {
+  border: none;
+  padding: 0;
+}
+
+div#mainContent form fieldset span {
+  display: block;
+  font-size: 0.5rem;
+  margin: 0.25rem 0;
+}
+
+div#mainContent form fieldset legend {
+  margin-bottom: 7.5%;
+  font-size: 1.5rem;
+}
+
+div#mainContent form fieldset p {
+  margin-top: auto;
+}
+
+div#mainContent form fieldset select#classificationId {
+  display: block;
+  width: 101%;
+  margin-bottom: 7.5%;
+  height: 3rem;
+  font-size: 1.25rem;
+}
+
+div#mainContent form fieldset select#classificationId option {
+  line-height: 2rem;
+}
+
+div#mainContent form fieldset input {
+  display: block;
+  margin: 1.5% 0 5% 0;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.75rem;
+}
+
+div#mainContent form fieldset input[type='radio'] {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+div#mainContent form fieldset textarea {
+  display: block;
+  margin: 1.5% 0 5% 0;
+  width: 100%;
+  line-height: 1.75rem;
+  height: 10rem;
+  font-size: 1.15rem;
+}
+
+div#mainContent form fieldset div.buttonHolder {
+  display: block;
+  margin-top: 10%;
+}
+
+div#mainContent form fieldset div.buttonHolder a,
+div#mainContent form fieldset div.buttonHolder button.formBtn {
+  display: inline-block;
+  font-family: 'Orbitron', sans-serif;
+  -webkit-text-decoration: 0;
+          text-decoration: 0;
+  font-size: 0.75rem;
+  background-color: #bababa;
+  border: none;
+  color: black;
+  width: 102%;
+  margin: 2.5% auto;
+  line-height: 2rem;
+}
+
+div#mainContent form fieldset div.buttonHolder a:hover,
+div#mainContent form fieldset div.buttonHolder button.formBtn:hover,
+div#mainContent form fieldset div.buttonHolder button.formBtn:hover {
+  background-color: #3a3a3a;
+  color: white;
+}
+
+div#mainContent form fieldset div.buttonHolder input[type='file'] {
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+}
+
+div#mainContent form fieldset div.buttonHolder input[type='submit'] {
+  font-family: 'Orbitron', sans-serif;
+  background-color: #bababa;
+}
+
+div#mainContent form fieldset div.buttonHolder input[type='submit']:hover,
+div#mainContent form fieldset div.buttonHolder input[type='submit']:active {
+  background-color: #3a3a3a;
+  color: white;
+}
+
+div#mainContent div#thumbnailGallery ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+div#mainContent div#thumbnailGallery ul li {
+  margin: 0 1rem;
+}
+
+div#mainContent div#thumbnailGallery ul li img {
+  width: 125px;
+}
+
+div#mainContent div#thumbnailGallery ul li p,
+div#mainContent div#thumbnailGallery ul li p > a {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+div#mainContent img#delorean {
+  width: 100%;
+}
+
+div#mainContent section#reviews {
+  font-family: 'Share Tech Mono', monospace;
+  padding-left: 5%;
+  width: 95%;
+}
+
+div#mainContent section#reviews ul {
+  padding: 0 0 0 20px;
+}
+
+div#mainContent section#reviews ul li {
+  margin: 0 0 0.75rem 0;
+}
+
+div#mainContent section#upgrades {
+  width: 100%;
+  font-family: 'Share Tech Mono', monospace;
+  margin: 2.5rem 0;
+}
+
+div#mainContent section#upgrades h2 {
+  padding-left: 5%;
+}
+
+div#mainContent section#upgrades ul {
+  display: -ms-grid;
+  display: grid;
+  width: 90%;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+div#mainContent section#upgrades ul li {
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+div#mainContent section#upgrades ul li a div.upgradeHolder {
+  display: block;
+  height: 80%;
+  background-color: #4c96d7;
+}
+
+div#mainContent section#upgrades ul li a div.upgradeHolder img {
+  display: inline;
+  margin: 5% auto 0 auto;
+  padding: 10px;
+  width: 40%;
+  float: none;
+}
+
+div#mainContent section#upgrades ul li a div.upgradeHolder p {
+  display: inline-block;
+  width: 100%;
+  height: 20%;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  text-align: center;
+}
+
+div#mainContent section#upgrades ul li a div.upgradeHolder:hover {
+  background-color: #2e5b83;
+}
+
+div#mainContent div#vehicleManagementDiv {
+  display: block;
+}
+
+div#mainContent div#vehicleManagementDiv h2,
+div#mainContent div#vehicleManagementDiv p,
+div#mainContent div#vehicleManagementDiv a {
+  display: block;
+}
+
+div#mainContent div.resultCard a {
+  font-family: 'Share Tech Mono', monospace;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 2.5rem auto;
+}
+
+div#mainContent div.resultCard a img {
+  height: 100%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin: 0 auto 0 auto;
+}
+
+div#mainContent div.resultCard a div.resultInfo {
+  width: 60%;
+  margin: 0 auto 0 0;
+}
+
+div#mainContent div.resultCard a div.resultInfo h3,
+div#mainContent div.resultCard a div.resultInfo h4 {
+  margin: 0.25rem auto;
+  color: blue;
+  font-size: 1rem;
+}
+
+div#mainContent div.resultCard a div.resultInfo h3 {
+  font-size: 1.25rem;
+}
+
+div#mainContent div.resultCard a div.resultInfo p {
+  padding: 0;
+  margin: 0;
+  font-size: 0.5rem;
+}
+
+div#mainContent div.resultCard a:hover div.resultInfo > p {
+  color: black;
+  text-shadow: none;
+}
+
+div#mainContent div.resultCard a:visited div.resultInfo h3,
+div#mainContent div.resultCard a:visited div.resultInfo h4 {
+  color: #7f0099;
+}
+
+div#mainContent div#pagNav_bar {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+div#mainContent div#pagNav_bar a {
+  margin: 0 0.5rem;
+}
+
+div#mainContent div#pagNav_bar a#current {
+  text-decoration: underline;
+}
+
+ul#inv-display {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+  row-gap: 2.5%;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+}
+
+ul#inv-display li {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #dadada99;
+  text-align: center;
+  justify-self: center;
+  margin-bottom: 5%;
+  padding-bottom: 5%;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: bold;
+}
+
+ul#inv-display li img {
+  width: 100%;
+}
+
+ul#inv-display li h2 {
+  justify-self: flex-end;
+  bottom: 0;
+}
+
+ul#inv-display li span,
+ul#inv-display li span > span {
+  justify-self: flex-end;
+  font-size: 1.25rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: normal;
+  padding: 0;
+}
+
+div#vehicDescriptContent {
+  width: 100%;
+}
+
+div#vehicDescriptContent img {
+  width: 100%;
+  max-width: 500%;
+}
+
+div#vehicDescriptContent div#vehicInfo {
+  width: 90%;
+  padding: 5%;
+  margin: 0 auto;
+}
+
+div#vehicDescriptContent div#vehicInfo p:nth-of-type(3) {
+  font-weight: bold;
+}
+
+div#vehicDescriptContent div#thumbnail_list {
+  display: -ms-grid;
+  display: grid;
+  width: 90%;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin: 0 auto;
+}
+
+div#vehicDescriptContent div#thumbnail_list img {
+  width: 100%;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+footer {
+  background-color: #3a3a3a;
+  color: white;
+  border-top: 3px solid #3a3a3a;
+  font-family: 'Share Tech Mono', monospace;
+  text-align: center;
+  font-size: 0.5rem;
+  padding: 0.5rem 0.25rem;
+  height: 7.5vh;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    background-image: url("/phpmotors/images/site/small_check(1).jpg");
+  }
+  main {
+    border: 4px solid #4c96d7;
+    width: 80%;
+    margin: 1.5% auto;
+  }
+  header span {
+    font-size: 1.2rem;
+  }
+  header a#imgLink {
+    width: 27.5%;
+  }
+  header div#loggedInSettings {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    font-family: 'Share Tech Mono', monospace;
+    cursor: pointer;
+  }
+  header div#loggedInSettings a:link,
+  header div#loggedInSettings a:visited,
+  header div#loggedInSettings a:active {
+    color: #3a3a3a;
+    text-decoration: none;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    font-size: 1rem;
+  }
+  header div#loggedInSettings a:hover {
+    color: #4c96d7;
+  }
+  nav {
+    font-size: 0.75rem;
+  }
+  div#contentWrap {
+    padding-bottom: 20vh;
+  }
+  div#mainContent div#hero {
+    padding-bottom: 2.5rem;
+  }
+  div#mainContent div#hero #comment h3 {
+    margin: 0.5rem 0;
+  }
+  div#mainContent div#hero #comment ul li {
+    font-size: 0.75rem;
+  }
+  div#mainContent div#hero button {
+    top: 27%;
+    left: 2.5%;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0 1rem;
+  }
+  div#mainContent div#accountManagementDiv > a,
+  div#mainContent div#vehicleManagementDiv > a {
+    font-size: 1.25rem;
+  }
+  div#mainContent div#inputHolder p {
+    font-size: 0.75rem;
+    margin: 5% 0;
+  }
+  div#mainContent div#inputHolder div#thumbnailGallery ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+  }
+  div#mainContent div#inputHolder div#thumbnailGallery ul li > img {
+    width: 30%;
+  }
+  div#mainContent div#inputHolder form fieldset span {
+    font-size: 0.75rem;
+  }
+  div#mainContent div#inputHolder form fieldset input {
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+  }
+  div#mainContent div#inputHolder form fieldset div.buttonHolder a,
+  div#mainContent div#inputHolder form fieldset div.buttonHolder button.formBtn,
+  div#mainContent div#inputHolder form fieldset div.buttonHolder button.formBtn {
+    font-size: 1.5rem;
+    width: 102%;
+    margin: 2.5% auto;
+    line-height: 3rem;
+  }
+  div#mainContent div#inputHolder form fieldset div.buttonHolder a:hover,
+  div#mainContent div#inputHolder form fieldset div.buttonHolder button.formBtn:hover,
+  div#mainContent div#inputHolder form fieldset div.buttonHolder button.formBtn:hover {
+    background-color: #3a3a3a;
+  }
+  div#mainContent div#contentHolder {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    margin-bottom: 2rem;
+  }
+  div#mainContent div#contentHolder .contentHolder_heading {
+    margin: auto 0 0.5rem 0;
+  }
+  div#mainContent div#contentHolder section#reviews ul {
+    padding: 0 0 0 10px;
+    margin: 0;
+  }
+  div#mainContent div#contentHolder section#upgrades {
+    margin: 0;
+  }
+  div#mainContent div#contentHolder section#upgrades h2 {
+    padding-left: 5%;
+  }
+  div#mainContent div#contentHolder section#upgrades ul li a div.upgradeHolder img {
+    width: 30%;
+  }
+  div#mainContent div#contentHolder section#upgrades ul li a p {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    margin: 0;
+  }
+  div#mainContent div.resultCard a {
+    margin: 2.5rem auto;
+  }
+  div#mainContent div.resultCard a img {
+    width: 200px;
+    height: 100%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    margin: 0 auto 0 auto;
+  }
+  div#mainContent div.resultCard a div.resultInfo {
+    width: 60%;
+  }
+  div#mainContent div.resultCard a div.resultInfo h3,
+  div#mainContent div.resultCard a div.resultInfo h4 {
+    margin: 0.25rem auto;
+    color: blue;
+    font-size: 1rem;
+  }
+  div#mainContent div.resultCard a div.resultInfo h3 {
+    font-size: 1.25rem;
+  }
+  div#mainContent div.resultCard a div.resultInfo p {
+    padding: 0;
+    margin: 0;
+    font-size: 0.5rem;
+  }
+  div#mainContent div.resultCard a:hover div.resultInfo > p {
+    color: black;
+    text-shadow: none;
+  }
+  div#mainContent div.resultCard a:visited div.resultInfo h3,
+  div#mainContent div.resultCard a:visited div.resultInfo h4 {
+    color: #7f0099;
+  }
+  div#mainContent div#pagNav_bar {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  div#mainContent div#pagNav_bar a {
+    margin: 0 0.5rem;
+  }
+  div#mainContent div#pagNav_bar a#current {
+    text-decoration: underline;
+  }
+  ul#inv-display {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    row-gap: 2.5%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  ul#inv-display li {
+    width: 45%;
+    background-color: #dadada99;
+  }
+  ul#inv-display li img {
+    width: 100%;
+  }
+  div#vehicDescriptContent {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  div#vehicDescriptContent img {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 47.5%;
+    margin-left: 2.5%;
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
+  }
+  div#vehicDescriptContent div#vehicInfo {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    background-color: #dadada99;
+    width: 40%;
+    padding: 2.5%;
+    margin: 2.5%;
+  }
+  div#vehicDescriptContent div#vehicInfo p:nth-of-type(3) {
+    font-weight: bold;
+  }
+  div#vehicDescriptContent div#thumbnail_list {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+  }
+  div#vehicDescriptContent div#thumbnail_list img {
+    width: 20%;
+    margin: 0 auto;
+  }
+  div#vehicDescriptContent div#thumbnail_list img:hover {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  footer {
+    font-size: 0.75rem;
+    height: 20vh;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  div#contentWrap {
+    min-height: 92.5vh;
+    padding-bottom: 10vh;
+  }
+  main {
+    border: 8px solid #4c96d7;
+  }
+  header a#imgLink {
+    width: 20%;
+  }
+  header a#imgLink img {
+    width: 100%;
+  }
+  header div#loggedInSettings {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    font-family: 'Share Tech Mono', monospace;
+    cursor: pointer;
+  }
+  header div#loggedInSettings a:link,
+  header div#loggedInSettings a:visited,
+  header div#loggedInSettings a:active {
+    color: #3a3a3a;
+    text-decoration: none;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    font-size: 1.5rem;
+  }
+  header div#loggedInSettings a:hover {
+    color: #4c96d7;
+  }
+  nav {
+    font-size: 1rem;
+  }
+  div#mainContent h1 {
+    font-size: 2.5rem;
+  }
+  div#mainContent div#hero {
+    padding-bottom: 2.5rem;
+  }
+  div#mainContent div#hero #comment h3 {
+    margin: 0.5rem 0;
+    font-size: 1.75rem;
+  }
+  div#mainContent div#hero #comment ul li {
+    font-size: 1.15rem;
+  }
+  div#mainContent div#hero button {
+    top: 20%;
+    left: 2.5%;
+    font-size: 1.75rem;
+    line-height: 3rem;
+    padding: 0 1.5rem;
+  }
+  div#mainContent div#inputHolder p {
+    font-size: 1rem;
+    margin: 5% 0;
+  }
+  div#mainContent div#inputHolder form fieldset label {
+    font-size: 1.5rem;
+  }
+  div#mainContent div#inputHolder form fieldset input {
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+  }
+  div#mainContent div#inputHolder form fieldset div.buttonHolder a,
+  div#mainContent div#inputHolder form fieldset div.buttonHolder button.formBtn,
+  div#mainContent div#inputHolder form fieldset div.buttonHolder button.formBtn {
+    font-size: 1.5rem;
+    width: 102%;
+    margin: 2.5% auto;
+    line-height: 5rem;
+  }
+  div#mainContent div#inputHolder form fieldset div.buttonHolder a:hover,
+  div#mainContent div#inputHolder form fieldset div.buttonHolder button.formBtn:hover,
+  div#mainContent div#inputHolder form fieldset div.buttonHolder button.formBtn:hover {
+    background-color: #3a3a3a;
+  }
+  div#mainContent div#contentHolder {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  div#mainContent div#contentHolder section#reviews h2 {
+    font-size: 2.5rem;
+  }
+  div#mainContent div#contentHolder section#reviews ul {
+    padding: 0 0 0 10px;
+  }
+  div#mainContent div#contentHolder section#reviews ul li {
+    margin: 0 0 2rem 0;
+    font-size: 1.25rem;
+  }
+  div#mainContent div#contentHolder section#upgrades h2 {
+    font-size: 2.5rem;
+    padding-left: 5%;
+  }
+  div#mainContent div#contentHolder section#upgrades ul li a div.upgradeHolder img {
+    width: 30%;
+  }
+  div#mainContent div#contentHolder section#upgrades ul li a p {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+  div#mainContent div.resultCard a {
+    margin: 2.5rem auto;
+  }
+  div#mainContent div.resultCard a img {
+    width: 400px;
+    height: 100%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    margin: 0 auto 0 auto;
+  }
+  div#mainContent div.resultCard a div.resultInfo {
+    width: 60%;
+    margin: 0 auto 0 0;
+  }
+  div#mainContent div.resultCard a div.resultInfo h3,
+  div#mainContent div.resultCard a div.resultInfo h4 {
+    margin: 0.25rem auto;
+    color: blue;
+    font-size: 2rem;
+  }
+  div#mainContent div.resultCard a div.resultInfo h3 {
+    font-size: 2.5rem;
+  }
+  div#mainContent div.resultCard a div.resultInfo p {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+  }
+  div#mainContent div.resultCard a:hover div.resultInfo > p {
+    color: black;
+    text-shadow: none;
+  }
+  div#mainContent div.resultCard a:visited div.resultInfo h3,
+  div#mainContent div.resultCard a:visited div.resultInfo h4 {
+    color: #7f0099;
+  }
+  div#mainContent div#pagNav_bar {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  div#mainContent div#pagNav_bar a {
+    margin: 0 0.5rem;
+  }
+  div#mainContent div#pagNav_bar a#current {
+    text-decoration: underline;
+  }
+  ul#inv-display {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    row-gap: 2.5%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  ul#inv-display li {
+    width: 22.5%;
+    padding-bottom: 2.5%;
+    margin-bottom: 2.5%;
+  }
+  ul#inv-display li img {
+    width: 100%;
+  }
+  div#vehicDescriptContent {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  div#vehicDescriptContent img {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    width: 47.5%;
+    margin-left: 0%;
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
+  }
+  div#vehicDescriptContent div#vehicInfo {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    background-color: #dadada99;
+    width: 30%;
+    padding: 2.5%;
+    margin: 2.5%;
+  }
+  div#vehicDescriptContent div#vehicInfo p:nth-of-type(3) {
+    font-weight: bold;
+  }
+  div#vehicDescriptContent div#thumbnail_list {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 10%;
+    margin: 2.5% 0 2.5% 2.5%;
+    margin-left: 2.5%;
+    height: 290px;
+    overflow-y: auto;
+  }
+  div#vehicDescriptContent div#thumbnail_list img {
+    width: 75%;
+    margin: 0 auto;
+  }
+  div#vehicDescriptContent div#thumbnail_list img:hover {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  footer {
+    font-size: 1rem;
+    height: 10vh;
+  }
+}
+/*# sourceMappingURL=index.css.map */

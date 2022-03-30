@@ -1,7 +1,12 @@
+import { globalMethods } from "./index.js";
+
+import { todaysOffersMethods } from "../javascript/todaysOffersMethods.js";
+
 export const startupMethods = {
   getSetup: function(jsonData) {
-    console.log(jsonData);
+    // console.log(jsonData);
     // this.getWallet();
+    this.getInventory();
     let isNewDay = this.checkNewDay();
     this.restockShelves(isNewDay,jsonData)
   },
@@ -15,12 +20,26 @@ export const startupMethods = {
       localStorage.setItem("wallet", 0)
     }
     else { //STEP2
-      let wallet_element = document.getElementById("wallet")
-      wallet_element.innerHTML = wallet_value;
+      // let wallet_element = document.getElementById("wallet")
+      // wallet_element.innerHTML = wallet_value;
     }
     return wallet_value;//STEP3
   },
-  checkNewDay: function(isNewDay=false, 
+  getInventory: function(inventory_value = localStorage.inventory) {
+    //STEP1 check if inventory exists if not, create localStorage Item
+    //STEP2 set innerHTML of inventory element to inventory value
+    //STEP3 return inventory value for future use.
+
+    if (!inventory_value) { //STEP1
+      localStorage.setItem("inventory", [])
+    }
+    else { //STEP2
+      // let inventory_element = document.getElementById("inventory")
+      // inventory_element.innerHTML = inventory_value;
+    }
+    return inventory_value;//STEP3
+  },
+  checkNewDay: function(isNewDay = false, 
     lastVisit=localStorage.lastVisit) {
     //STEP1: check if this was user's first appearence
     //STEP2: compare lastVisit to today and return results
@@ -59,14 +78,14 @@ export const startupMethods = {
     }
     return HTrip_value;//STEP3
   },
-  restockShelves: function(
+  restockShelves: function( //main function that provides array of shelf items
       isNewDay,
       jsonData,
       shelfLimit = 24,
       category = [0,0,1,2,2], 
-      categoryA = category[Math.floor(Math.random()*category.length)],
-      categoryB = category[Math.floor(Math.random()*category.length)],
-      categoryC = category[Math.floor(Math.random()*category.length)],
+      categoryA = category[globalMethods.randNumGen(category.length)],
+      categoryB = category[globalMethods.randNumGen(category.length)],
+      categoryC = category[globalMethods.randNumGen(category.length)],
       shelf = localStorage.shelf,
       products = []
   ) {
@@ -78,10 +97,9 @@ export const startupMethods = {
      * STEP5 remove repeats by comparing and combining and comparing some more
      * STEP6 Once products array is full, reassign value of localStorage.shelf.
      */
-  
-  
+
   if (!isNewDay) { //STEP1 //temp -> (isNewDay)
-    console.log(jsonData);
+    // console.log(jsonData);
   
     //STEP2
     if (!shelf) {
@@ -102,10 +120,34 @@ export const startupMethods = {
     products = this.compileProducts(products, partB);
     let partC = this.removeRepeats(selectionsC, products);
     products = this.compileProducts(products, partC)
+
+    // console.log(products)
   
     //STEP6
-    localStorage.setItem('shelf',JSON.stringify(products));
-    console.log(JSON.parse(localStorage.shelf), "SHELF");  //works
+
+    // console.log(products)
+    this.pricing.addPrices(products);
+
+    let shelfItems_pagNavArray = todaysOffersMethods.setUpPagNav(products);
+
+    let shelfItems_string = JSON.stringify(shelfItems_pagNavArray);
+    localStorage.setItem('shelf',shelfItems_string);
+
+    let currentShelf = 0;
+    localStorage.setItem('pagNavIndex',currentShelf);
+    
+    let shelfItems_array = JSON.parse(localStorage.shelf)
+    // console.log(shelfItems_array)
+    // let shelfItems_pagNaved = this.setUpPagNav(shelfItems_array);
+
+    // console.log(shelfItems_pagNaved)
+    // shelfItems_string = JSON.stringify(shelfPagNav);
+    // shelfItems_array = JSON.parse(localStorage.shelf)
+
+    // //STEP6
+    // localStorage.setItem('shelf',shelfItems_string);
+    // console.log(shelfPagNav)
+    // console.log(shelfItems_array, "SHELF");  //works
   }
   },
   selectSellables: function(category,jsonData, sellables=[], products=[]) {
@@ -130,8 +172,9 @@ export const startupMethods = {
     
     //STEP2
     let numbers = [];
-    for (let i=0; i<=7; i++) {
-      let numb = Math.floor(Math.random()*sellables.length);
+    for (let i=0; i<=9; i++) {
+      let numb = globalMethods.randNumGen(sellables.length)
+      // let numb = Math.floor(Math.random()*sellables.length);
       numbers.push(numb);
       if (i>0) {
         for (let ii=0; ii<(numbers.length - 1); ii++) {
@@ -178,6 +221,180 @@ export const startupMethods = {
       whole.push(part[i]);
     }
     return whole;
+  },
+  // setUpPagNav: function(shelfItems) {
+  //   let counter = 0;
+  //   let shelf = [];
+  //   let shelfPagNav = [];
+  //   for (let x in shelfItems) {
+  //     shelf.push(shelfItems[x]);
+  //     counter++;
+  //     // console.log(shelfItems[x]);
+  //     if (shelf.length%5==0) {
+  //       shelfPagNav.push(shelf);
+  //       shelf = [];
+  //     }
+  //     else if (counter == shelfItems.length) {
+  //       shelfPagNav.push(shelf);
+  //       shelf = [];
+  //     }
+  //   }
+  //   return shelfPagNav;
+  // },
+  pricing: {
+    addPrices: function(shelfItems){
+      for(let x in shelfItems) {
+        // console.log(shelfItems[x])
+        if (shelfItems[x] == undefined) {
+        }
+        else {
+          let category = shelfItems[x].category;
+          switch (category) {
+            case "creatures":
+            case "materials":
+              this.addHeartsVariable(shelfItems[x], shelfItems[x].hearts_recovered)
+              break;
+            case "equipment":
+              if (shelfItems[x].attack > shelfItems[x].defense) {
+                this.addAtkDefVariable(shelfItems[x], shelfItems[x].attack)
+              }
+              else if (shelfItems[x].attack < shelfItems[x].defense) {
+                this.addAtkDefVariable(shelfItems[x],shelfItems[x].defense)
+              }
+              else {
+                this.addAtkDefVariable(shelfItems[x])
+              }
+              break;
+            case "materials":
+            default:
+          }
+        }
+      }
+    },
+    addHeartsVariable(item, value){ //somehow, the pricing doesn't work out
+      if ((value > 0)  && ( value <= 1)){
+        item.price=globalMethods.randNumGen(75,35);
+      }
+      else if ((value > 1)  && ( value <= 3)){
+        item.price=globalMethods.randNumGen(150,75);
+      }
+      else if (value > 3) {
+        item.price=globalMethods.randNumGen(250,175);
+      }
+      else {
+        item.price=globalMethods.randNumGen(35,0);
+      }
+      // console.log(item)
+    },
+    addAtkDefVariable(item, value = 15){
+      if ((value > 0) && (value <= 10)) {
+        item.price=globalMethods.randNumGen(50,0);
+      }
+      else if ((value > 10) && (value <= 20)) {
+        item.price=globalMethods.randNumGen(150,75);
+      }
+      else if ((value > 20) && (value <= 30)) {
+        item.price=globalMethods.randNumGen(400,175);
+      }
+      else if (value > 30) {
+        item.price=globalMethods.randNumGen(900,450);
+      }
+    }
+  },
+  
+
+  neoPricing: {
+    addPrice: function(shelfItem){
+      if (shelfItem == undefined) {
+        return;
+      }
+      else {
+        let category = shelfItem.category;
+        switch (category) {
+          case "creatures":
+          case "materials":
+            this.addHeartsVariable(shelfItem, shelfItems.hearts_recovered)
+            break;
+          case "equipment": 
+            if (shelfItem.attack > shelfItem.defense) {
+              this.addAtkDefVariable(shelfItem, shelfItem.attack)
+              console.log("PriceAdded_equipment")
+            }
+            else (
+              this.addAtkDefVariable(shelfItem,shelfItem.defense)
+            )
+            break;
+        }
+      }
+    },
+
+
+    addPrices: function(shelfItems){
+      console.log(shelfItems);
+      for(let x in shelfItems) {
+        console.log(x);
+        // shelfItems[x].price=0;
+        // console.log(shelfItems[x].category)
+        console.log(shelfItems[x])
+        if (shelfItems[x] == undefined) {
+          ;
+        }
+        else {
+          let category = shelfItems[x].category;
+          console.log(category)
+          switch (category) {
+            case "creatures":
+              this.addHeartsVariable(shelfItems[x], shelfItems[x].hearts_recovered)
+              console.log("PriceAdded_creature")
+              break;
+            case "equipment":
+              if (shelfItems[x].attack > shelfItems[x].defense) {
+                this.addAtkDefVariable(shelfItems[x], shelfItems[x].attack)
+                console.log("PriceAdded_equipment")
+              }
+              else (
+                this.addAtkDefVariable(shelfItems[x],shelfItems[x].defense)
+              )
+              break;
+            case "materials":
+              this.addHeartsVariable(shelfItems[x], shelfItems[x].hearts_recovered)
+              console.log("PriceAdded_materials")
+              break;
+            default:
+          }
+          ;
+        }
+      }
+    },
+    addHeartsVariable(item, value){ //somehow, the pricing doesn't work out
+      if ((value > 0)  && ( value <= 1)){
+        item.price=globalMethods.randNumGen(75,35);
+      }
+      else if ((value > 1)  && ( value <= 3)){
+        item.price=globalMethods.randNumGen(150,75);
+      }
+      else if (value > 3) {
+        item.price=globalMethods.randNumGen(250,175);
+      }
+      else {
+        item.price=globalMethods.randNumGen(35,0);
+      }
+      // console.log(item)
+    },
+    addAtkDefVariable(item, value){
+      if ((value > 0) && (value <= 10)) {
+        item.price=globalMethods.randNumGen(50,0);
+      }
+      else if ((value > 10) && (value <= 20)) {
+        item.price=globalMethods.randNumGen(150,75);
+      }
+      else if ((value > 20) && (value <= 30)) {
+        item.price=globalMethods.randNumGen(400,175);
+      }
+      else if (value > 30) {
+        item.price=globalMethods.randNumGen(900,450);
+      }
+    }
   }
 }
 

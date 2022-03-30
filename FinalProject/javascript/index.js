@@ -40,7 +40,7 @@ async function shopKeeperSays (
   text = shopKeeperJson()[saysWhat]
   ) {
   let newText = ""
-  console.log(speed, "text.length")
+  // console.log(speed, "text.length")
   for (let i=0; i <= text.length; i++) {
     if (text.charAt(i) == "*") {
       newText += "<br><br>"
@@ -58,7 +58,7 @@ function addLetter(newText) {
 
 export const globalMethods = {
   formElement: function(paramElement,paramId="",paramClass="",paramLink="",paramText="") {
-    console.log(paramId);
+    // console.log(paramId);
     let element = document.createElement(paramElement);
     element = document.createElement(paramElement);
     // paramId.setAttribute('id',paramId);
@@ -78,32 +78,68 @@ export const globalMethods = {
     if (paramText != "") {
       element.innerHTML = paramText;
     }
-    if (paramClass == "viewBtn"){
-      element.addEventListener('click', (e) =>{
-        buttonRouter.newView(e)
-      })
+    switch (paramClass) {
+      case "viewBtn":
+        element.addEventListener('click', (e) =>{
+          buttonRouter.newView(e);
+        })
+        break;
+      case "changeBtn":
+        element.addEventListener('click',(e) =>{
+          buttonRouter.changeSettings(e);
+        })
+        break;
+      case "arrow":
+        element.addEventListener('click',(e) => {
+          buttonRouter.changeSettings(e);
+        })
+        break;
+      case "item_card":
+        element.addEventListener('click',(e) => {
+          console.log("ITEM")
+          // this.formElement()
+          buttonRouter.changeSettings(e);
+        })
+        break;
     }
-    if (paramClass == "changeBtn") {
-      element.addEventListener('click',(e) =>{
-        buttonRouter.changeSettings(e)
-      })
-    }
-    console.log(element)
+    // if (paramClass == "viewBtn"){
+    //   element.addEventListener('click', (e) =>{
+    //     buttonRouter.newView(e)
+    //   })
+    // }
+    // if (paramClass == "changeBtn") {
+    //   element.addEventListener('click',(e) =>{
+    //     buttonRouter.changeSettings(e)
+    //   })
+    // }
+    
+
+
+    
+    // console.log(element)
     return element;
   },
-  clearBody: function(){
-    document.querySelector('body').innerHTML = "";
+  clearElement: function(elementStr){
+    document.querySelector(elementStr).innerHTML = "";
+  },
+  randNumGen: function(
+    maxLength = 1001,
+    minLength = 0
+  ){
+    let RNG = Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;
+    return RNG;
   }
 }
 export const buttonRouter = {
   newView: function(e) {
-    console.log(e.target.id);
-    globalMethods.clearBody();
+    // console.log(e.target.id);
+    globalMethods.clearElement("body");
     // console.log(e.target.id)
     switch(e.target.id) {
       case 'todaysOffers':
         clearTimeout(shopKeeperSays)
         todaysOffersMethods.establishHTML_TO();
+        todaysOffersMethods.bringUpDisplay();
         startupMethods.getWallet();
         shopKeeperSays("shopDisplay");
         break;
@@ -123,21 +159,39 @@ export const buttonRouter = {
     }
   },
   changeSettings: function(e) {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     let button = e.target
     let header = document.querySelector("h1");
+    let PNI = parseInt(localStorage.pagNavIndex);
     switch(button.id) {
       case 'itemBtn':
         if (button.innerHTML == "Inventory") {
           header.id = "inventory";
           header.innerHTML = "Your Inventory";
           button.innerHTML = "Display"
+          globalMethods.clearElement('ul');  
         }
         else if (button.innerHTML == "Display") {
           header.id = "displayCase";
           header.innerHTML = "Shop's Display";
-          button.innerHTML = "Inventory"
+          button.innerHTML = "Inventory";
+          globalMethods.clearElement('ul');
+          todaysOffersMethods.bringUpDisplay();
         }
+        break;
+      case 'prevBtn':
+        globalMethods.clearElement('ul');
+        localStorage.setItem('pagNavIndex',(PNI-1).toString());
+        todaysOffersMethods.bringUpDisplay();
+        todaysOffersMethods.displayArrows();
+        document.getElementById("pagNavIndex").innerHTML = (parseInt(localStorage.pagNavIndex)+1)
+        break;
+      case 'nextBtn':
+        globalMethods.clearElement('ul');
+        localStorage.setItem('pagNavIndex',(PNI+1).toString());
+        todaysOffersMethods.bringUpDisplay();
+        todaysOffersMethods.displayArrows();
+        document.getElementById("pagNavIndex").innerHTML = (parseInt(localStorage.pagNavIndex)+1)
         break;
     }
   }
@@ -152,6 +206,8 @@ const dummyViews = {
 
 main();
 
+
+localStorage.setItem("Pokemon","Flygon")
 
 
 

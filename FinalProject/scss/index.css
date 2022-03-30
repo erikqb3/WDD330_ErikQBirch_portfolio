@@ -78,6 +78,7 @@ main#homeView div#menuBtns div.viewBtn:hover,
 main#homeView div#menuBtns div.viewBtn:active {
   border: 4px solid #ffd971;
   background: radial-gradient(circle, rgba(158, 96, 25, 0.896) 0%, rgba(0, 0, 0, 0.8) 80%);
+  cursor: pointer;
 }
 
 main#homeView div#menuBtns div#todaysOffers {
@@ -176,7 +177,7 @@ main#todaysOffers ul#scrollableList li.item_card {
 }
 
 main#todaysOffers ul#scrollableList li.item_card img {
-  width: 30%;
+  width: 40%;
   margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -184,6 +185,7 @@ main#todaysOffers ul#scrollableList li.item_card img {
   -ms-flex-item-align: center;
       align-self: center;
   justify-self: center;
+  border: 1px solid black;
 }
 
 main#todaysOffers ul#scrollableList li.item_card div.item_info {
@@ -197,6 +199,15 @@ main#todaysOffers ul#scrollableList li.item_card div.item_info h2 {
 
 main#todaysOffers ul#scrollableList li.item_card div.item_info p {
   margin: 0.25rem 0;
+}
+
+main#todaysOffers ul#scrollableList li.item_card:hover,
+main#todaysOffers ul#scrollableList li.item_card:active {
+  background: radial-gradient(circle, rgba(92, 54, 0, 0.75) 0%, rgba(26, 16, 1, 0.5) 75%);
+  background-color: rgba(9, 9, 9, 0.5);
+  border: 1px solid #a7a7a7;
+  outline: 5px solid rgba(9, 9, 9, 0.5);
+  cursor: pointer;
 }
 
 main#todaysOffers ul#scrollableList li.invItem {
@@ -226,6 +237,7 @@ main#todaysOffers div#nav span.arrow:hover,
 main#todaysOffers div#nav span.arrow:active {
   color: whitesmoke;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 main#todaysOffers div#wallet {
@@ -284,6 +296,7 @@ main#todaysOffers div#infoANDinteraction div#backBtn:hover,
 main#todaysOffers div#infoANDinteraction div#itemBtn:hover {
   border: 4px solid #ffd971;
   background: radial-gradient(circle, rgba(158, 96, 25, 0.896) 0%, rgba(0, 0, 0, 0.8) 80%);
+  cursor: pointer;
 }
 
 main#todaysOffers div.textBox {
@@ -298,6 +311,32 @@ main#todaysOffers div.textBox {
   border: 2.5% solid rgba(71, 47, 19, 0.25);
   background: radial-gradient(circle, rgba(66, 55, 42, 0.514) 0%, rgba(37, 25, 10, 0.896) 90%);
   overflow-y: auto;
+}
+
+main#todaysOffers div#itemView {
+  width: 95%;
+  height: 75vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 2.5%;
+}
+
+main#todaysOffers div#itemView h1 {
+  color: whitesmoke;
+}
+
+main#todaysOffers div#itemView img {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+  left: 25%;
 }
 
 @media only screen and (min-width: 500px) {
@@ -390,6 +429,182 @@ main#todaysOffers div.textBox {
   main#homeView div.textBox {
     color: whitesmoke;
     height: 10vh;
+    width: 85%;
+    padding: 5%;
+    margin: 15px auto;
+    border-radius: 15px;
+    border: 2.5% solid rgba(71, 47, 19, 0.25);
+    background: radial-gradient(circle, rgba(66, 55, 42, 0.514) 0%, rgba(37, 25, 10, 0.896) 90%);
+    overflow-y: auto;
+  }
+  main#todaysOffers {
+    height: 70%;
+    width: 90%;
+    background-color: rgba(167, 137, 94, 0.9);
+    border: 5px solid rgba(36, 17, 3, 0.849);
+    outline: 2.5px solid #a58456;
+    margin: 1rem auto 0.25rem auto;
+    border-radius: 0.5rem;
+  }
+  main#todaysOffers h1 {
+    padding: 1rem 0 1rem 0;
+    text-align: Center;
+    margin: 0.5rem auto;
+    font-size: 2.25rem;
+    width: 90%;
+  }
+  main#todaysOffers h1#displayCase {
+    color: #009416;
+    background-color: #241103;
+    text-shadow: 2px 2px 2px white;
+    border: 2px dashed #009416;
+    outline: 5px solid #241103;
+  }
+  main#todaysOffers h1#inventory {
+    color: #940000;
+    background-color: #686868;
+    text-shadow: 2px 2px 2px white;
+    border: 2px dashed #940000;
+    outline: 5px solid #444444;
+  }
+  main#todaysOffers ul#scrollableList {
+    width: 100%;
+    height: 50%;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-top: 0.5rem solid rgba(0, 0, 0, 0.01);
+    border-bottom: 0.5rem solid rgba(0, 0, 0, 0.01);
+    margin: 0.5rem 0;
+    padding: 0;
+    list-style: none;
+  }
+  main#todaysOffers ul#scrollableList li.item_card {
+    height: 45%;
+    width: 82.5%;
+    border-radius: 0.5rem;
+    background: radial-gradient(circle, rgba(20, 20, 30, 0.5) 0%, rgba(50, 50, 60, 0.75) 75%);
+    background-color: rgba(9, 9, 9, 0.5);
+    border: 1px solid #a7a7a7;
+    outline: 5px solid rgba(9, 9, 9, 0.5);
+    color: whitesmoke;
+    margin: 01rem auto;
+    padding: 0.5rem 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  main#todaysOffers ul#scrollableList li.item_card img {
+    width: 20%;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+    justify-self: center;
+    border: 1px solid black;
+  }
+  main#todaysOffers ul#scrollableList li.item_card div.item_info {
+    margin-left: 1.5rem;
+    overflow-y: hidden;
+  }
+  main#todaysOffers ul#scrollableList li.item_card div.item_info h2 {
+    margin: 0;
+  }
+  main#todaysOffers ul#scrollableList li.item_card div.item_info p {
+    margin: 0.25rem 0;
+  }
+  main#todaysOffers ul#scrollableList li.item_card:hover,
+  main#todaysOffers ul#scrollableList li.item_card:active {
+    background: radial-gradient(circle, rgba(92, 54, 0, 0.75) 0%, rgba(26, 16, 1, 0.5) 75%);
+    background-color: rgba(9, 9, 9, 0.5);
+    border: 1px solid #a7a7a7;
+    outline: 5px solid rgba(9, 9, 9, 0.5);
+  }
+  main#todaysOffers ul#scrollableList li.invItem {
+    background-color: #ccbe95;
+    border: 1px solid rgba(36, 17, 3, 0.849);
+    outline: 2px solid #ccbe95;
+    border-radius: 5px;
+    height: 20%;
+    width: 82.5%;
+    border-radius: 0.5rem;
+    margin: 01rem auto;
+    padding: 0.5rem 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  main#todaysOffers div#nav {
+    color: #241103;
+    font-size: 2rem;
+  }
+  main#todaysOffers div#nav span.arrow:hover,
+  main#todaysOffers div#nav span.arrow:active {
+    color: whitesmoke;
+    font-weight: bolder;
+  }
+  main#todaysOffers div#wallet {
+    background-color: #ccbe95;
+    border: 1px solid rgba(36, 17, 3, 0.849);
+    outline: 2px solid #ccbe95;
+    display: inline-block;
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    text-align: right;
+    border-radius: 5px;
+    padding: 7.5% 10% 7.5% 45%;
+    width: 100%;
+  }
+  main#todaysOffers div#infoANDinteraction {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    height: 27.5%;
+    margin-bottom: 1rem;
+  }
+  main#todaysOffers div#infoANDinteraction div#nav,
+  main#todaysOffers div#infoANDinteraction div#wallet,
+  main#todaysOffers div#infoANDinteraction div#backBtn,
+  main#todaysOffers div#infoANDinteraction div#itemBtn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+    justify-self: center;
+  }
+  main#todaysOffers div#infoANDinteraction div#backBtn,
+  main#todaysOffers div#infoANDinteraction div#itemBtn {
+    text-align: center;
+    border-radius: 15px;
+    border: 3px solid #ffdb7a;
+    background: radial-gradient(circle, rgba(71, 47, 19, 0.896) 0%, rgba(0, 0, 0, 0.8) 72%);
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    padding: 7.5% 22.5%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 1% auto;
+  }
+  main#todaysOffers div#infoANDinteraction div#backBtn:hover,
+  main#todaysOffers div#infoANDinteraction div#itemBtn:hover {
+    border: 4px solid #ffd971;
+    background: radial-gradient(circle, rgba(158, 96, 25, 0.896) 0%, rgba(0, 0, 0, 0.8) 80%);
+  }
+  main#todaysOffers div.textBox {
+    font-size: 1.25rem;
+    color: whitesmoke;
+    text-shadow: 1.5px 1.5px 2px black;
+    height: 20vh;
     width: 85%;
     padding: 5%;
     margin: 15px auto;

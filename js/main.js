@@ -31,7 +31,7 @@ function prepStuff() {
     url: "Notes/Week10/W10_notes.html"
     },
     {label: "Final Project",
-  url:"FinalProject/index.html"}
+  url:"FinalProject/views/index.html"}
   ];
   return links_array;
 }

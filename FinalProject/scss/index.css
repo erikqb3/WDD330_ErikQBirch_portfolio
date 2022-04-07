@@ -58,10 +58,11 @@ main#homeView div#menuBtns div#wallet {
   grid-row: 2;
   -ms-grid-column: 2;
   grid-column: 2;
-  padding: 0.5rem 0.5rem 0.5rem 4rem;
+  padding: 0.5rem 0.5rem 0.5rem 2.5rem;
   -ms-flex-item-align: end;
       align-self: flex-end;
   margin: 15px auto;
+  font-size: 0.9rem;
 }
 
 main#homeView div#menuBtns div.viewBtn {
@@ -88,14 +89,14 @@ main#homeView div#menuBtns div#todaysOffers {
   grid-row: 1;
 }
 
-main#homeView div#menuBtns div#sellGoods {
+main#homeView div#menuBtns div#huntingTrips {
   -ms-grid-column: 3;
   grid-column: 3;
   -ms-grid-row: 2;
   grid-row: 2;
 }
 
-main#homeView div#menuBtns div#huntingTrips {
+main#homeView div#menuBtns div#leaveBazaar {
   -ms-grid-column: 1;
   grid-column: 1;
   -ms-grid-row: 2;
@@ -214,6 +215,7 @@ main#todaysOffers ul#scrollableList li.invItem {
   background-color: #ccbe95;
   border: 1px solid rgba(36, 17, 3, 0.849);
   outline: 2px solid #ccbe95;
+  position: relative;
   border-radius: 5px;
   height: 20%;
   width: 82.5%;
@@ -226,32 +228,31 @@ main#todaysOffers ul#scrollableList li.invItem {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-main#todaysOffers div#nav {
-  color: #241103;
-  font-size: 2rem;
-}
-
-main#todaysOffers div#nav span.arrow:hover,
-main#todaysOffers div#nav span.arrow:active {
-  color: whitesmoke;
-  font-weight: bolder;
   cursor: pointer;
 }
 
-main#todaysOffers div#wallet {
-  background-color: #ccbe95;
-  border: 1px solid rgba(36, 17, 3, 0.849);
-  outline: 2px solid #ccbe95;
-  display: inline-block;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  text-align: right;
-  border-radius: 5px;
-  padding: 7.5% 10% 7.5% 45%;
+main#todaysOffers ul#scrollableList li.invItem p {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+main#todaysOffers ul#scrollableList li.invItem div.film {
+  opacity: 0;
+  height: 100%;
   width: 100%;
+  border-radius: 0.5rem;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+main#todaysOffers ul#scrollableList li.toSell {
+  background-color: #241103;
+  outline: 2px solid #241103;
+  color: #ccbe95;
+  border: 1px solid #ccbe95;
 }
 
 main#todaysOffers div#infoANDinteraction {
@@ -265,10 +266,59 @@ main#todaysOffers div#infoANDinteraction {
   margin-bottom: 1rem;
 }
 
+main#todaysOffers div#infoANDinteraction div#nav {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  color: #241103;
+  font-size: 2rem;
+}
+
+main#todaysOffers div#infoANDinteraction div#nav span.arrow:hover,
+main#todaysOffers div#infoANDinteraction div#nav span.arrow:active {
+  color: whitesmoke;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+main#todaysOffers div#infoANDinteraction div#wallet {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  background-color: #ccbe95;
+  border: 1px solid rgba(36, 17, 3, 0.849);
+  outline: 2px solid #ccbe95;
+  display: inline-block;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  text-align: right;
+  border-radius: 5px;
+  padding: 7.5% 10% 7.5% 45%;
+  width: 100%;
+}
+
+main#todaysOffers div#infoANDinteraction div#backBtn {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+
+main#todaysOffers div#infoANDinteraction div#itemBtn {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
 main#todaysOffers div#infoANDinteraction div#nav,
 main#todaysOffers div#infoANDinteraction div#wallet,
 main#todaysOffers div#infoANDinteraction div#backBtn,
-main#todaysOffers div#infoANDinteraction div#itemBtn {
+main#todaysOffers div#infoANDinteraction div#itemBtn,
+main#todaysOffers div#infoANDinteraction div#sellBtn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -278,7 +328,8 @@ main#todaysOffers div#infoANDinteraction div#itemBtn {
 }
 
 main#todaysOffers div#infoANDinteraction div#backBtn,
-main#todaysOffers div#infoANDinteraction div#itemBtn {
+main#todaysOffers div#infoANDinteraction div#itemBtn,
+main#todaysOffers div#infoANDinteraction div#sellBtn {
   text-align: center;
   border-radius: 15px;
   border: 3px solid #ffdb7a;
@@ -293,10 +344,20 @@ main#todaysOffers div#infoANDinteraction div#itemBtn {
 }
 
 main#todaysOffers div#infoANDinteraction div#backBtn:hover,
-main#todaysOffers div#infoANDinteraction div#itemBtn:hover {
+main#todaysOffers div#infoANDinteraction div#itemBtn:hover,
+main#todaysOffers div#infoANDinteraction div#sellBtn:hover {
   border: 4px solid #ffd971;
   background: radial-gradient(circle, rgba(158, 96, 25, 0.896) 0%, rgba(0, 0, 0, 0.8) 80%);
   cursor: pointer;
+}
+
+main#todaysOffers div#infoANDinteraction div#sellBtn {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  z-index: 2;
+  padding: 5% 22.5%;
 }
 
 main#todaysOffers div.textBox {
@@ -316,15 +377,25 @@ main#todaysOffers div.textBox {
 main#todaysOffers div#itemView {
   width: 95%;
   height: 75vh;
+  z-index: 6;
   background-color: rgba(0, 0, 0, 0.7);
+  color: whitesmoke;
   margin: 0 auto;
   position: absolute;
   top: 0;
   left: 2.5%;
+  display: block;
+  border-radius: 7.5px;
 }
 
 main#todaysOffers div#itemView h1 {
-  color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: 1rem 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 2rem;
+  text-align: left;
 }
 
 main#todaysOffers div#itemView img {
@@ -333,10 +404,113 @@ main#todaysOffers div#itemView img {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  width: 75%;
+  width: 50%;
   margin: 0 auto;
   text-align: center;
-  left: 25%;
+  padding: 0 5.5rem;
+}
+
+main#todaysOffers div#itemView div#itemInfo {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0 2rem;
+}
+
+main#todaysOffers div#itemView div#itemInfo h2 {
+  margin: 0.5rem auto;
+}
+
+main#todaysOffers div#itemView div#itemInfo p {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+main#todaysOffers div#itemView div#itemInfo div#priceToggle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.75rem 0;
+  line-height: 1.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  justify-items: center;
+  width: 100%;
+}
+
+main#todaysOffers div#itemView div#itemInfo div#priceToggle label {
+  margin-right: 1rem;
+}
+
+main#todaysOffers div#itemView div#itemInfo div#priceToggle input#quantity {
+  width: 25%;
+}
+
+main#todaysOffers div#itemView div#itemInfo div#priceToggle p#totalCost {
+  margin: 0;
+  margin-left: 3rem;
+}
+
+main#todaysOffers div#itemView div#btnHolder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main#todaysOffers div#itemView div#btnHolder div#noBtn,
+main#todaysOffers div#itemView div#btnHolder div#yesBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+}
+
+main#todaysOffers div#itemView div#btnHolder div#noBtn,
+main#todaysOffers div#itemView div#btnHolder div#yesBtn {
+  text-align: center;
+  border-radius: 15px;
+  border: 3px solid #ffdb7a;
+  background: radial-gradient(circle, rgba(71, 47, 19, 0.896) 0%, rgba(0, 0, 0, 0.8) 72%);
+  color: whitesmoke;
+  text-shadow: 1px 1px 1px black;
+  padding: 3.75% 10%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 2.5% auto;
+}
+
+main#todaysOffers div#itemView div#btnHolder div#noBtn:hover,
+main#todaysOffers div#itemView div#btnHolder div#yesBtn:hover {
+  border: 4px solid #ffd971;
+  background: radial-gradient(circle, rgba(158, 96, 25, 0.896) 0%, rgba(0, 0, 0, 0.8) 80%);
+  cursor: pointer;
+}
+
+main#todaysOffers div#sellList_holder {
+  width: 92.5%;
+  height: 37.5vh;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: whitesmoke;
+  margin: 0 auto;
+  position: absolute;
+  top: 15vh;
+  left: 2.5%;
+  display: block;
+  border-radius: 7.5px;
+}
+
+main#todaysOffers div#sellList_holder table {
+  width: 100%;
+  padding: 10%;
+}
+
+main#todaysOffers div#sellList_holder table tr > th {
+  font-size: 1.5rem;
+  text-align: left;
+  text-decoration: underline;
 }
 
 @media only screen and (min-width: 500px) {
@@ -414,13 +588,13 @@ main#todaysOffers div#itemView img {
     -ms-grid-row: 1;
     grid-row: 1;
   }
-  main#homeView div#menuBtns div#sellGoods {
+  main#homeView div#menuBtns div#huntingTrips {
     -ms-grid-column: 3;
     grid-column: 3;
     -ms-grid-row: 2;
     grid-row: 2;
   }
-  main#homeView div#menuBtns div#huntingTrips {
+  main#homeView div#menuBtns div#leaveBazaar {
     -ms-grid-column: 1;
     grid-column: 1;
     -ms-grid-row: 2;
@@ -438,12 +612,410 @@ main#todaysOffers div#itemView img {
     overflow-y: auto;
   }
   main#todaysOffers {
-    height: 70%;
+    height: 72.5%;
     width: 90%;
     background-color: rgba(167, 137, 94, 0.9);
     border: 5px solid rgba(36, 17, 3, 0.849);
     outline: 2.5px solid #a58456;
     margin: 1rem auto 0.25rem auto;
+    border-radius: 0.5rem;
+  }
+  main#todaysOffers h1 {
+    padding: 1rem 0 1rem 0;
+    text-align: Center;
+    margin: 0.5rem auto;
+    font-size: 2.25rem;
+    width: 90%;
+  }
+  main#todaysOffers h1#displayCase {
+    color: #009416;
+    background-color: #241103;
+    text-shadow: 2px 2px 2px white;
+    border: 2px dashed #009416;
+    outline: 5px solid #241103;
+  }
+  main#todaysOffers h1#inventory {
+    color: #940000;
+    background-color: #686868;
+    text-shadow: 2px 2px 2px white;
+    border: 2px dashed #940000;
+    outline: 5px solid #444444;
+  }
+  main#todaysOffers ul#scrollableList {
+    width: 100%;
+    height: 50%;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-top: 0.5rem solid rgba(0, 0, 0, 0.01);
+    border-bottom: 0.5rem solid rgba(0, 0, 0, 0.01);
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  main#todaysOffers ul#scrollableList li.item_card {
+    height: 45%;
+    width: 82.5%;
+    border-radius: 0.5rem;
+    background: radial-gradient(circle, rgba(20, 20, 30, 0.5) 0%, rgba(50, 50, 60, 0.75) 75%);
+    background-color: rgba(9, 9, 9, 0.5);
+    border: 1px solid #a7a7a7;
+    outline: 5px solid rgba(9, 9, 9, 0.5);
+    color: whitesmoke;
+    margin: 01rem auto;
+    padding: 0.5rem 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  main#todaysOffers ul#scrollableList li.item_card img {
+    width: 20%;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+    justify-self: center;
+    border: 1px solid black;
+  }
+  main#todaysOffers ul#scrollableList li.item_card div.item_info {
+    margin-left: 1.5rem;
+    overflow-y: hidden;
+  }
+  main#todaysOffers ul#scrollableList li.item_card div.item_info h2 {
+    margin: 0;
+  }
+  main#todaysOffers ul#scrollableList li.item_card div.item_info p {
+    margin: 0.25rem 0;
+  }
+  main#todaysOffers ul#scrollableList li.item_card:hover,
+  main#todaysOffers ul#scrollableList li.item_card:active {
+    background: radial-gradient(circle, rgba(92, 54, 0, 0.75) 0%, rgba(26, 16, 1, 0.5) 75%);
+    background-color: rgba(9, 9, 9, 0.5);
+    border: 1px solid #a7a7a7;
+    outline: 5px solid rgba(9, 9, 9, 0.5);
+  }
+  main#todaysOffers ul#scrollableList li.invItem {
+    background-color: #ccbe95;
+    border: 1px solid rgba(36, 17, 3, 0.849);
+    outline: 2px solid #ccbe95;
+    border-radius: 5px;
+    height: 20%;
+    width: 82.5%;
+    border-radius: 0.5rem;
+    margin: 01rem auto;
+    padding: 0.5rem 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  main#todaysOffers ul#scrollableList li.invItem p {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  main#todaysOffers ul#scrollableList li.invItem div.film {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  main#todaysOffers ul#scrollableList li.toSell {
+    background-color: #241103;
+    outline: 2px solid #241103;
+    color: #ccbe95;
+    border: 1px solid #ccbe95;
+  }
+  main#todaysOffers div#infoANDinteraction {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    height: 25%;
+    margin-bottom: 1rem;
+  }
+  main#todaysOffers div#infoANDinteraction div#nav {
+    color: #241103;
+    font-size: 1.5rem;
+  }
+  main#todaysOffers div#infoANDinteraction div#nav span.arrow:hover,
+  main#todaysOffers div#infoANDinteraction div#nav span.arrow:active {
+    color: whitesmoke;
+    font-weight: bolder;
+  }
+  main#todaysOffers div#infoANDinteraction div#wallet {
+    background-color: #ccbe95;
+    border: 1px solid rgba(36, 17, 3, 0.849);
+    outline: 2px solid #ccbe95;
+    display: inline-block;
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    text-align: right;
+    border-radius: 5px;
+    padding: 3% 10% 3% 40%;
+    width: 100%;
+  }
+  main#todaysOffers div#infoANDinteraction div#nav,
+  main#todaysOffers div#infoANDinteraction div#wallet,
+  main#todaysOffers div#infoANDinteraction div#backBtn,
+  main#todaysOffers div#infoANDinteraction div#itemBtn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+    justify-self: center;
+  }
+  main#todaysOffers div#infoANDinteraction div#backBtn,
+  main#todaysOffers div#infoANDinteraction div#itemBtn {
+    text-align: center;
+    border-radius: 15px;
+    border: 3px solid #ffdb7a;
+    background: radial-gradient(circle, rgba(71, 47, 19, 0.896) 0%, rgba(0, 0, 0, 0.8) 72%);
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    padding: 3% 22.5%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 1% auto;
+  }
+  main#todaysOffers div#infoANDinteraction div#backBtn:hover,
+  main#todaysOffers div#infoANDinteraction div#itemBtn:hover {
+    border: 4px solid #ffd971;
+    background: radial-gradient(circle, rgba(158, 96, 25, 0.896) 0%, rgba(0, 0, 0, 0.8) 80%);
+  }
+  main#todaysOffers div#infoANDinteraction div#sellBtn {
+    padding: 3% 22.5%;
+  }
+  main#todaysOffers div.textBox {
+    font-size: 1.25rem;
+    color: whitesmoke;
+    text-shadow: 1.5px 1.5px 2px black;
+    height: 15vh;
+    width: 95%;
+    padding: 2.5%;
+    margin: 15px auto;
+    border-radius: 15px;
+    border: 2.5% solid rgba(71, 47, 19, 0.25);
+    background: radial-gradient(circle, rgba(66, 55, 42, 0.514) 0%, rgba(37, 25, 10, 0.896) 90%);
+    overflow-y: auto;
+  }
+  main#todaysOffers div#itemView {
+    width: 95%;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: whitesmoke;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 2.5%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 25% 40% 35%;
+        grid-template-rows: 25% 40% 35%;
+  }
+  main#todaysOffers div#itemView h1 {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 1;
+    grid-row: 1;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    justify-self: flex-start;
+    text-align: left;
+    padding: 0;
+  }
+  main#todaysOffers div#itemView img {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    grid-row: 1/3;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    left: 25%;
+    padding: 0 2rem;
+  }
+  main#todaysOffers div#itemView div#itemInfo {
+    padding: 0;
+    margin: -1rem 2rem auto 0;
+  }
+  main#todaysOffers div#itemView div#itemInfo h2 {
+    margin: 0.5rem auto;
+  }
+  main#todaysOffers div#itemView div#itemInfo p {
+    margin: 0;
+  }
+  main#todaysOffers div#itemView div#btnHolder {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1/3;
+    -ms-grid-row: 3;
+    grid-row: 3;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 1rem;
+  }
+  main#todaysOffers div#itemView div#btnHolder div#backBtn,
+  main#todaysOffers div#itemView div#btnHolder div#itemBtn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+    justify-self: center;
+  }
+  main#todaysOffers div#itemView div#btnHolder div#backBtn,
+  main#todaysOffers div#itemView div#btnHolder div#itemBtn {
+    text-align: center;
+    border-radius: 15px;
+    border: 3px solid #ffdb7a;
+    background: radial-gradient(circle, rgba(71, 47, 19, 0.896) 0%, rgba(0, 0, 0, 0.8) 72%);
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    padding: 3.75% 10%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 2.5% auto;
+  }
+  main#todaysOffers div#itemView div#btnHolder div#backBtn:hover,
+  main#todaysOffers div#itemView div#btnHolder div#itemBtn:hover {
+    border: 4px solid #ffd971;
+    background: radial-gradient(circle, rgba(158, 96, 25, 0.896) 0%, rgba(0, 0, 0, 0.8) 80%);
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    background-image: url("../img/wallPaper_full.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+  }
+  main#homeView {
+    font-size: 1.25rem;
+    height: 100%;
+    color: whitesmoke;
+    text-shadow: 1.5px 1.5px 2px black;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  main#homeView div#menuBtns {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    width: 95%;
+    margin: 0 auto;
+  }
+  main#homeView div#menuBtns div.display {
+    background-color: #ccbe95;
+    border: 1px solid rgba(36, 17, 3, 0.849);
+    outline: 2px solid #ccbe95;
+    display: inline-block;
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    border-radius: 5px;
+  }
+  main#homeView div#menuBtns div#wallet {
+    -ms-grid-row: 2;
+    grid-row: 2;
+    -ms-grid-column: 2;
+    grid-column: 2;
+    padding: 2rem 2rem 2rem 10rem;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin: 15px auto;
+    font-size: 1.25rem;
+  }
+  main#homeView div#menuBtns div.viewBtn {
+    text-align: center;
+    border-radius: 15px;
+    border: 3px solid #ffdb7a;
+    background: radial-gradient(circle, rgba(71, 47, 19, 0.896) 0%, rgba(0, 0, 0, 0.8) 72%);
+    padding: 10%;
+    width: 78%;
+    margin: 1% auto;
+  }
+  main#homeView div#menuBtns div.viewBtn:hover,
+  main#homeView div#menuBtns div.viewBtn:active {
+    border: 4px solid #ffd971;
+    background: radial-gradient(circle, rgba(158, 96, 25, 0.896) 0%, rgba(0, 0, 0, 0.8) 80%);
+  }
+  main#homeView div#menuBtns div#todaysOffers {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+  main#homeView div#menuBtns div#huntingTrips {
+    -ms-grid-column: 3;
+    grid-column: 3;
+    -ms-grid-row: 2;
+    grid-row: 2;
+  }
+  main#homeView div#menuBtns div#leaveBazaar {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 2;
+    grid-row: 2;
+  }
+  main#homeView div.textBox {
+    color: whitesmoke;
+    height: 10vh;
+    width: 85%;
+    padding: 1%;
+    margin: 15px auto;
+    border-radius: 15px;
+    border: 2.5% solid rgba(71, 47, 19, 0.25);
+    background: radial-gradient(circle, rgba(66, 55, 42, 0.514) 0%, rgba(37, 25, 10, 0.896) 90%);
+    overflow-y: auto;
+  }
+  main#todaysOffers {
+    height: 95%;
+    width: 50%;
+    background-color: rgba(167, 137, 94, 0.9);
+    border: 5px solid rgba(36, 17, 3, 0.849);
+    outline: 2.5px solid #a58456;
+    margin: 1rem 1rem 0.25rem auto;
     border-radius: 0.5rem;
   }
   main#todaysOffers h1 {
@@ -520,6 +1092,7 @@ main#todaysOffers div#itemView img {
     background-color: rgba(9, 9, 9, 0.5);
     border: 1px solid #a7a7a7;
     outline: 5px solid rgba(9, 9, 9, 0.5);
+    cursor: pointer;
   }
   main#todaysOffers ul#scrollableList li.invItem {
     background-color: #ccbe95;
@@ -538,6 +1111,22 @@ main#todaysOffers div#itemView img {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  main#todaysOffers ul#scrollableList li.invItem div.film {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  main#todaysOffers ul#scrollableList li.toSell {
+    background-color: #241103;
+    outline: 2px solid #241103;
+    color: #ccbe95;
+    border: 1px solid #ccbe95;
+  }
   main#todaysOffers div#nav {
     color: #241103;
     font-size: 2rem;
@@ -546,6 +1135,7 @@ main#todaysOffers div#itemView img {
   main#todaysOffers div#nav span.arrow:active {
     color: whitesmoke;
     font-weight: bolder;
+    cursor: pointer;
   }
   main#todaysOffers div#wallet {
     background-color: #ccbe95;
@@ -599,119 +1189,136 @@ main#todaysOffers div#itemView img {
   main#todaysOffers div#infoANDinteraction div#itemBtn:hover {
     border: 4px solid #ffd971;
     background: radial-gradient(circle, rgba(158, 96, 25, 0.896) 0%, rgba(0, 0, 0, 0.8) 80%);
+    cursor: pointer;
   }
   main#todaysOffers div.textBox {
     font-size: 1.25rem;
     color: whitesmoke;
     text-shadow: 1.5px 1.5px 2px black;
-    height: 20vh;
-    width: 85%;
-    padding: 5%;
+    height: 12.5vh;
+    width: 35%;
+    padding: 1% 5%;
     margin: 15px auto;
     border-radius: 15px;
     border: 2.5% solid rgba(71, 47, 19, 0.25);
     background: radial-gradient(circle, rgba(66, 55, 42, 0.514) 0%, rgba(37, 25, 10, 0.896) 90%);
     overflow-y: auto;
+    z-index: index 2;
+    position: absolute;
+    left: 1.5rem;
+    top: 80%;
   }
-}
-
-@media only screen and (min-width: 1200px) {
-  body {
-    background-image: url("../img/wallPaper_full.jpg");
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    margin: 0;
-  }
-  main#homeView {
-    font-size: 1.25rem;
-    height: 100%;
+  main#todaysOffers div#itemView {
+    position: absolute;
+    width: 45%;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.7);
     color: whitesmoke;
-    text-shadow: 1.5px 1.5px 2px black;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-  }
-  main#homeView div#menuBtns {
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 1.75%;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-    -ms-grid-rows: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-    width: 95%;
-    margin: 0 auto;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 35% 40% 25%;
+        grid-template-rows: 35% 40% 25%;
   }
-  main#homeView div#menuBtns div.display {
-    background-color: #ccbe95;
-    border: 1px solid rgba(36, 17, 3, 0.849);
-    outline: 2px solid #ccbe95;
-    display: inline-block;
-    max-width: -webkit-fit-content;
-    max-width: -moz-fit-content;
-    max-width: fit-content;
-    border-radius: 5px;
-  }
-  main#homeView div#menuBtns div#wallet {
-    -ms-grid-row: 2;
-    grid-row: 2;
-    -ms-grid-column: 2;
-    grid-column: 2;
-    padding: 0.5rem 0.5rem 0.5rem 4rem;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-    margin: 15px auto;
-  }
-  main#homeView div#menuBtns div.viewBtn {
-    text-align: center;
-    border-radius: 15px;
-    border: 3px solid #ffdb7a;
-    background: radial-gradient(circle, rgba(71, 47, 19, 0.896) 0%, rgba(0, 0, 0, 0.8) 72%);
-    padding: 10%;
-    width: 78%;
-    margin: 1% auto;
-  }
-  main#homeView div#menuBtns div.viewBtn:hover,
-  main#homeView div#menuBtns div.viewBtn:active {
-    border: 4px solid #ffd971;
-    background: radial-gradient(circle, rgba(158, 96, 25, 0.896) 0%, rgba(0, 0, 0, 0.8) 80%);
-  }
-  main#homeView div#menuBtns div#todaysOffers {
+  main#todaysOffers div#itemView h1 {
+    background-color: transparent;
     -ms-grid-column: 2;
     grid-column: 2;
     -ms-grid-row: 1;
     grid-row: 1;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    justify-self: flex-start;
+    text-align: left;
+    padding: 0;
   }
-  main#homeView div#menuBtns div#sellGoods {
-    -ms-grid-column: 3;
-    grid-column: 3;
-    -ms-grid-row: 2;
-    grid-row: 2;
-  }
-  main#homeView div#menuBtns div#huntingTrips {
+  main#todaysOffers div#itemView img {
     -ms-grid-column: 1;
     grid-column: 1;
-    -ms-grid-row: 2;
-    grid-row: 2;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    grid-row: 1/3;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    left: 2%;
+    padding: 0 1rem;
   }
-  main#homeView div.textBox {
-    color: whitesmoke;
-    height: 10vh;
-    width: 85%;
-    padding: 1%;
-    margin: 15px auto;
+  main#todaysOffers div#itemView div#itemInfo {
+    background-color: transparent;
+    padding: 0;
+    margin: -3rem 1rem auto 0;
+  }
+  main#todaysOffers div#itemView div#itemInfo h2 {
+    margin: 0.5rem auto;
+  }
+  main#todaysOffers div#itemView div#itemInfo p {
+    margin: 0;
+  }
+  main#todaysOffers div#itemView div#btnHolder {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1/3;
+    -ms-grid-row: 3;
+    grid-row: 3;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: -2.5rem;
+  }
+  main#todaysOffers div#itemView div#btnHolder div#backBtn,
+  main#todaysOffers div#itemView div#btnHolder div#itemBtn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+        align-self: center;
+    justify-self: center;
+  }
+  main#todaysOffers div#itemView div#btnHolder div#backBtn,
+  main#todaysOffers div#itemView div#btnHolder div#itemBtn {
+    text-align: center;
     border-radius: 15px;
-    border: 2.5% solid rgba(71, 47, 19, 0.25);
-    background: radial-gradient(circle, rgba(66, 55, 42, 0.514) 0%, rgba(37, 25, 10, 0.896) 90%);
-    overflow-y: auto;
+    border: 3px solid #ffdb7a;
+    background: radial-gradient(circle, rgba(71, 47, 19, 0.896) 0%, rgba(0, 0, 0, 0.8) 72%);
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    padding: 3.75% 10%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 2.5% auto;
+  }
+  main#todaysOffers div#itemView div#btnHolder div#backBtn:hover,
+  main#todaysOffers div#itemView div#btnHolder div#itemBtn:hover {
+    border: 4px solid #ffd971;
+    background: radial-gradient(circle, rgba(158, 96, 25, 0.896) 0%, rgba(0, 0, 0, 0.8) 80%);
+    cursor: pointer;
+  }
+  main#todaysOffers div#sellList_holder {
+    position: absolute;
+    width: 45%;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: whitesmoke;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 1.75%;
   }
 }
 /*# sourceMappingURL=index.css.map */

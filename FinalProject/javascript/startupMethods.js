@@ -54,7 +54,7 @@ export const startupMethods = {
     //STEP2
     let today = new Date();
     if (parseInt(lastVisit) == today.getDate()) {
-      console.log("NO");
+      // console.log("NO");
     }
     else {
       //STEP3
@@ -137,6 +137,7 @@ export const startupMethods = {
     localStorage.setItem('pagNavIndex',currentShelf);
     
     let shelfItems_array = JSON.parse(localStorage.shelf)
+    // console.log(localStorage.shelf)
     // console.log(shelfItems_array)
     // let shelfItems_pagNaved = this.setUpPagNav(shelfItems_array);
 

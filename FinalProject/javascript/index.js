@@ -235,7 +235,7 @@ export const buttonRouter = {
   }
 }
 const dummyViews = {
-  "homeView": "http://127.0.0.1:5503/FinalProject/views/index.html",
+  "homeView": "https://erikqb3.github.io/WDD330_ErikQBirch_portfolio/FinalProject/views/index.html",
   "todaysOffers": "http://127.0.0.1:5503/FinalProject/views/todaysOffers_dmy.html",
   "sellGoods": "http://127.0.0.1:5503/FinalProject/views/sellGoods_dmy.html",
   "huntingTrips": "http://127.0.0.1:5503/FinalProject/views/huntingTrips_dmy.html"

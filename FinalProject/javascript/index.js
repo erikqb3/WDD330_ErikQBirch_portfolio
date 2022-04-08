@@ -11,7 +11,8 @@ import { sellGoodsMethods } from "../javascript/sellGoodsMethods.js";
 
 async function main() {
   switch(window.location.href){
-    case dummyViews.homeView:
+    case dummyViews.homeView_github:
+    case dummyViews.homeView_local:
       homeViewMethods.establishHTML_home();
       shopKeeperSays("greetings");
       startupMethods.getWallet();
@@ -226,6 +227,7 @@ export const buttonRouter = {
         break;
       case 'yesBtn':
         shopKeeperSays("yesBuy")
+        document.getElementById('itemView').remove();
         todaysOffersMethods.spendMoney(document.getElementById('totalCost').innerHTML)
         break;
       case 'sellBtn':
@@ -235,10 +237,8 @@ export const buttonRouter = {
   }
 }
 const dummyViews = {
-  "homeView": "https://erikqb3.github.io/WDD330_ErikQBirch_portfolio/FinalProject/views/index.html",
-  "todaysOffers": "http://127.0.0.1:5503/FinalProject/views/todaysOffers_dmy.html",
-  "sellGoods": "http://127.0.0.1:5503/FinalProject/views/sellGoods_dmy.html",
-  "huntingTrips": "http://127.0.0.1:5503/FinalProject/views/huntingTrips_dmy.html"
+  "homeView_github": "https://erikqb3.github.io/WDD330_ErikQBirch_portfolio/FinalProject/views/index.html",
+  "homeView_local": "http://127.0.0.1:5503/FinalProject/views/index.html"
 }
 
 

@@ -15,9 +15,9 @@ export const startupMethods = {
     //STEP1 check if wallet exists if not, create localStorage Item
     //STEP2 set innerHTML of wallet element to wallet value
     //STEP3 return wallet value for future use.
-   
-    if (!wallet_value) { //STEP1
-      localStorage.setItem("wallet", 0)
+    
+    if ((!wallet_value)||(wallet_value == undefined)) { //STEP1
+      localStorage.setItem("wallet", 200)
     }
     else { //STEP2
       // let wallet_element = document.getElementById("wallet")
